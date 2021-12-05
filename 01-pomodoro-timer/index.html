@@ -19,7 +19,7 @@
         mode: 'finished',
         minutes: 5,
         seconds: 0,
-        timeRemaining: 300,
+        timeRemaining: 0,
         get time() {return this.minutes * 60 + this.seconds},
         get isFinished() {return this.mode === 'finished'},
       }"
@@ -67,9 +67,11 @@
             },
             updateMinutes({target}) { 
               this.minutes = +target.value; 
+              this.timeRemaining = time;
             },
             updateSeconds({target}) { 
               this.seconds = +target.value; 
+              this.timeRemaining = time;
             },
           }"
         >
@@ -119,7 +121,7 @@
                 if (this.timeRemaining > 0 && this.mode !== 'paused') { this.timeRemaining--;
                 } else if (this.mode === 'paused') {
                 } else { this.endTimer() }
-              },100);
+              }, 1000);
             },
             pauseTimer() { this.mode = 'paused' },
             resumeTimer() { this.mode = 'running' },
@@ -133,6 +135,7 @@
               alert('Timer Ended')
             },
           }"
+          x-init="timeRemaining = time"
         >
           <div>
             <button
