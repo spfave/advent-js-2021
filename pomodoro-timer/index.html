@@ -16,9 +16,12 @@
     <div
       class="wrapper"
       x-data="{
-        time: 900,
-        timeRemaining: 900,
-        mode: 'finished', 
+        mode: 'finished',
+        minutes: 5,
+        seconds: 0,
+        timeRemaining: 300,
+        get time() {return this.minutes * 60 + this.seconds},
+        get isFinished() {return this.mode === 'finished'},
       }"
     >
       <!-- Timer mode and progress ring indicator -->
@@ -43,32 +46,57 @@
       </div>
 
       <!-- Timer display and controls -->
-      <div class="timer">
-        <!-- Timer display -->
+      <div
+        class="timer"
+        x-data="{
+          edit: false,
+          toggleEdit() { this.edit = !this.edit; },
+        }"
+      >
+        <!-- Display -->
         <div
           class="time"
           x-data="{
-            minutes() {
+            displayMinutes() {
               const mins = Math.floor(this.timeRemaining / 60);
               return mins < 10 ? `0${mins}` : `${mins}` ;
             },
-            seconds() {
+            displaySeconds() {
               const secs = this.timeRemaining % 60;
               return secs < 10 ? `0${secs}` : `${secs}`;
+            },
+            updateMinutes({target}) { 
+              this.minutes = +target.value; 
+            },
+            updateSeconds({target}) { 
+              this.seconds = +target.value; 
             },
           }"
         >
           <div class="minutes">
-            <input type="text" x-bind:value="minutes" disabled />
+            <!-- x-model.number="minutes" -->
+            <input
+              x-ref="inputMinutes"
+              type="text"
+              x-on:input="updateMinutes($event)"
+              x-bind:value="displayMinutes"
+              x-bind:disabled="!edit"
+            />
           </div>
           <div class="colon">:</div>
           <div class="seconds">
-            <input type="text" x-bind:value="seconds" disabled />
+            <input
+              type="text"
+              x-on:input="updateSeconds($event)"
+              x-bind:value="displaySeconds"
+              x-bind:disabled="!edit"
+            />
           </div>
         </div>
 
-        <!-- Timer controls -->
+        <!-- Controls -->
         <div
+          class="controls"
           x-data="{
             timer: null,
             handleTimer() {
@@ -84,12 +112,13 @@
               }
             },
             startTimer () {
+              this.edit = false;
               this.timeRemaining = this.time;
               this.resumeTimer();
               this.timer = setInterval(() => {
                 if (this.timeRemaining > 0 && this.mode !== 'paused') { this.timeRemaining--;
                 } else if (this.mode === 'paused') {
-                } else {this.endTimer()}
+                } else { this.endTimer() }
               },100);
             },
             pauseTimer() { this.mode = 'paused' },
@@ -105,16 +134,23 @@
             },
           }"
         >
+          <div>
+            <button
+              class="btn"
+              x-text="{finished: 'start', running: 'pause', paused: 'resume'}[mode]"
+              x-on:click="handleTimer"
+            ></button>
+            <button class="btn" x-on:click="resetTimer">reset</button>
+          </div>
           <button
-            class="btn"
-            x-text="{finished: 'start', running: 'pause', paused: 'resume'}[mode]"
-            x-on:click="handleTimer"
-          ></button>
-          <button class="btn" x-on:click="resetTimer">reset</button>
+            class="settings"
+            type="button"
+            x-on:click="toggleEdit"
+            x-bind:disabled="!isFinished"
+          >
+            <img src="images/gear.svg" alt="Settings" />
+          </button>
         </div>
-        <button class="settings">
-          <img src="images/gear.svg" alt="Settings" />
-        </button>
       </div>
     </div>
   </body>

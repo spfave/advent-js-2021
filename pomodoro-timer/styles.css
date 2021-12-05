@@ -87,6 +87,11 @@ svg {
   top: 30px;
 }
 
+.controls {
+  display: flex;
+  flex-direction: column;
+}
+
 input[type='text'] {
   border: 0;
   border-bottom: 1px dashed white;
@@ -131,4 +136,9 @@ input[type='text']:disabled {
 
 .settings:hover {
   opacity: 1;
+}
+
+.settings:disabled {
+  opacity: 0.1;
+  cursor: not-allowed;
 }
