@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-
 @font-face {
   font-family: 'bebas';
   src: url('./fonts/bebasneue-book-webfont.woff') format('woff'),
     url('./fonts/bebasneue-book-webfont.woff2') format('woff2');
+}
+
+:root {
+  --color-red: #900a0a;
+  --color-green: #09a65a;
+  --color-blue: #092ea6;
 }
 
 body {
@@ -32,13 +37,17 @@ body {
 .ring {
   position: absolute;
   left: 0;
-  stroke: #09a65a;
+  stroke: var(--color-green);
   top: 0;
   z-index: 1;
 }
 
-.ring.ending circle {
-  stroke: #900a0a;
+.ring.finished circle {
+  stroke: var(--color-red);
+}
+
+.ring.paused circle {
+  stroke: var(--color-blue);
 }
 
 /* inner circle */
@@ -88,7 +97,7 @@ input[type='text']:disabled {
   border-bottom: none;
 }
 
-.start {
+.btn {
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
@@ -102,7 +111,7 @@ input[type='text']:disabled {
   margin-bottom: 20px;
 }
 
-.start:hover {
+.btn:hover {
   opacity: 1;
 }
 
