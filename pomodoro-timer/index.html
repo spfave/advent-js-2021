@@ -16,62 +16,19 @@
     <div
       class="wrapper"
       x-data="{
-      time: 900,
-      timeRemaining: 900,
-      mode: 'finished', 
-      timer: null,
-      get minutes() {
-        const mins = Math.floor(this.timeRemaining / 60);
-        return mins < 10 ? `0${mins}` : `${mins}` ;
-      },
-      get seconds() {
-        const secs = this.timeRemaining % 60;
-        return secs < 10 ? `0${secs}` : `${secs}`;
-      },
-      get progress() {
-        return 1595.93 * (1 - this.timeRemaining / this.time);
-      },
-      handleTimer() {
-        switch (this.mode){
-          case 'finished':
-            this.startTimer(); break;
-          case 'running':
-            this.pauseTimer(); break;
-          case 'paused':
-            this.resumeTimer(); break;
-          default:
-            break;
-        }
-      },
-      startTimer () {
-        this.timeRemaining = this.time;
-        this.resumeTimer();
-        this.timer = setInterval(() => {
-          if (this.timeRemaining > 0 && this.mode !== 'paused') {
-            this.timeRemaining--
-          } else if (this.mode === 'paused') {
-          } else {this.endTimer()}
-        },1000);
-      },
-      pauseTimer() { this.mode = 'paused' },
-      resumeTimer() { this.mode = 'running' },
-      resetTimer () {
-        this.mode = 'finished';
-        clearInterval(this.timer);
-        this.timeRemaining = this.time;
-      },
-      endTimer() {
-        this.resetTimer();
-        alert('Timer Ended')
-      },
-      timerBtnText(mode) {
-        const modeToText = {finished: 'start', running: 'pause', paused: 'resume'};
-        return {finished: 'start', running: 'pause', paused: 'resume'}[mode];
-      }
-    }"
+        time: 900,
+        timeRemaining: 900,
+        mode: 'finished', 
+      }"
     >
       <!-- Timer mode and progress ring indicator -->
-      <div class="ring" x-bind:class="mode">
+      <div
+        class="ring"
+        x-bind:class="mode"
+        x-data="{
+          get progress() { return 1595.93 * (1 - this.timeRemaining / this.time); },
+        }"
+      >
         <svg width="518" height="518" viewBox="0 0 518 518">
           <circle
             cx="50%"
@@ -85,9 +42,22 @@
         </svg>
       </div>
 
-      <!-- Timer value and controls -->
+      <!-- Timer display and controls -->
       <div class="timer">
-        <div class="time">
+        <!-- Timer display -->
+        <div
+          class="time"
+          x-data="{
+            minutes() {
+              const mins = Math.floor(this.timeRemaining / 60);
+              return mins < 10 ? `0${mins}` : `${mins}` ;
+            },
+            seconds() {
+              const secs = this.timeRemaining % 60;
+              return secs < 10 ? `0${secs}` : `${secs}`;
+            },
+          }"
+        >
           <div class="minutes">
             <input type="text" x-bind:value="minutes" disabled />
           </div>
@@ -96,10 +66,48 @@
             <input type="text" x-bind:value="seconds" disabled />
           </div>
         </div>
-        <div>
+
+        <!-- Timer controls -->
+        <div
+          x-data="{
+            timer: null,
+            handleTimer() {
+              switch (this.mode){
+                case 'finished':
+                  this.startTimer(); break;
+                case 'running':
+                  this.pauseTimer(); break;
+                case 'paused':
+                  this.resumeTimer(); break;
+                default:
+                  break;
+              }
+            },
+            startTimer () {
+              this.timeRemaining = this.time;
+              this.resumeTimer();
+              this.timer = setInterval(() => {
+                if (this.timeRemaining > 0 && this.mode !== 'paused') { this.timeRemaining--;
+                } else if (this.mode === 'paused') {
+                } else {this.endTimer()}
+              },100);
+            },
+            pauseTimer() { this.mode = 'paused' },
+            resumeTimer() { this.mode = 'running' },
+            resetTimer () {
+              this.mode = 'finished';
+              clearInterval(this.timer);
+              this.timeRemaining = this.time;
+            },
+            endTimer() {
+              this.resetTimer();
+              alert('Timer Ended')
+            },
+          }"
+        >
           <button
             class="btn"
-            x-text="timerBtnText(mode)"
+            x-text="{finished: 'start', running: 'pause', paused: 'resume'}[mode]"
             x-on:click="handleTimer"
           ></button>
           <button class="btn" x-on:click="resetTimer">reset</button>

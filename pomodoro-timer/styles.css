@@ -47,13 +47,13 @@ svg {
   z-index: 1;
 }
 
-.ring.finished circle.progress {
+.ring.finished circle {
   stroke: var(--color-red);
 }
-.ring.running circle.progress {
+.ring.running circle {
   stroke: var(--color-green);
 }
-.ring.paused circle.progress {
+.ring.paused circle {
   stroke: var(--color-blue);
 }
 
