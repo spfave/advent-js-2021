@@ -2,4 +2,4 @@
 > https://www.adventofjs.com/
 
 ## **Projects**
-1. [Pomodoro Timer](./pomodoro-timer)
+1. [Pomodoro Timer](./01-pomodoro-timer)
