@@ -11,6 +11,10 @@
   --color-blue: #092ea6;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   align-items: center;
   background: #2b2a30;
@@ -24,48 +28,51 @@ body {
 
 /* outer glow */
 .wrapper {
-  align-items: center;
-  border-radius: 50%;
-  box-shadow: -5px 14px 44px #000000, 5px -16px 50px rgba(255, 255, 255, 0.15);
   display: flex;
-  height: 518px;
+  align-items: center;
   justify-content: center;
   position: relative;
   width: 518px;
+  height: 518px;
+  border-radius: 50%;
+  box-shadow: -5px 14px 44px #000000, 5px -16px 50px rgba(255, 255, 255, 0.15);
 }
 
-.ring {
+svg {
   position: absolute;
   left: 0;
-  stroke: var(--color-green);
   top: 0;
+  transform: rotate(-90deg);
+  fill: transparent;
   z-index: 1;
 }
 
-.ring.finished circle {
+.ring.finished circle.progress {
   stroke: var(--color-red);
 }
-
-.ring.paused circle {
+.ring.running circle.progress {
+  stroke: var(--color-green);
+}
+.ring.paused circle.progress {
   stroke: var(--color-blue);
 }
 
 /* inner circle */
 .timer {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  position: relative;
   background: radial-gradient(
     71.4% 71.4% at 51.7% 28.6%,
     #3a393f 0%,
     #17171a 100%
   );
+  color: white;
   border-radius: 50%;
   box-shadow: inset 0px 0px 114px rgba(0, 0, 0, 0.45);
-  color: white;
-  display: flex;
-  flex-direction: column;
   height: 500px;
-  justify-content: center;
-  position: relative;
   width: 500px;
   z-index: 2;
 }
