@@ -6,25 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>06 - Range Slider || Advent of JavaScript</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
 
   <body>
-    <div class="wrapper">
+    <div
+      class="wrapper"
+      x-data="{
+      amount: 50,
+      get formatAmount() {return this.amount.toFixed(2)},
+    }"
+    >
       <div class="amount">
         <sup>$</sup>
-        <span class="dollars">50.00</span>
+        <span class="dollars" x-text="formatAmount"></span>
       </div>
       <input
         type="range"
         id="priceRange"
         min="0"
-        max="10000"
-        step="1"
-        value=""
+        max="100"
+        step="0.01"
+        x-model.number="amount"
       />
       <br />
       <button>Buy Now</button>
-      <script src="app.js"></script>
     </div>
   </body>
 </html>
