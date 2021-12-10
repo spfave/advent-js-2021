@@ -42,25 +42,21 @@ document.addEventListener('alpine:init', () => {
     },
 
     handleSingleClick(id) {
-      console.log(`single: ${id}`);
-      console.log(this.episodeList);
+      // console.log(`single: ${id}`);
     },
 
     handleShiftClick(id) {
       if (this.start === 0) {
         this.start = id;
-        // console.log(`shifted start: ${this.start}`);
         return;
       }
 
       this.end = id;
-      // console.log(`shifted end: ${this.end}`);
       if (this.start > this.end) {
-        [this.start, this.end] = [this.end - 1, this.start];
+        [this.start, this.end] = [this.end, this.start];
       }
 
-      // console.log(this.episodeList);
-      this.episodeList.slice(this.start, this.end).forEach((ep) => {
+      this.episodeList.slice(this.start - 1, this.end).forEach((ep) => {
         ep.checked = true;
       });
 
