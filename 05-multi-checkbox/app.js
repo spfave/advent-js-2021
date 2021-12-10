@@ -13,8 +13,8 @@ document.addEventListener('alpine:init', () => {
 
   // Global data
   Alpine.data('episodes', () => ({
-    start: 0,
-    end: 0,
+    start: null,
+    end: null,
     episodeList: [],
 
     init() {
@@ -46,22 +46,24 @@ document.addEventListener('alpine:init', () => {
     },
 
     handleShiftClick(id) {
-      if (this.start === 0) {
-        this.start = id;
+      if (this.start === null) {
+        this.start = id - 1;
         return;
       }
 
-      this.end = id;
+      this.end = id - 1;
       if (this.start > this.end) {
         [this.start, this.end] = [this.end, this.start];
       }
 
-      this.episodeList.slice(this.start - 1, this.end).forEach((ep) => {
-        ep.checked = true;
+      // toggle only in-between checkboxes, start and end are handled directly
+      const checkValue = this.episodeList[this.start].checked;
+      this.episodeList.slice(this.start + 1, this.end + 1).forEach((ep) => {
+        ep.checked = checkValue;
       });
 
-      this.start = 0;
-      this.end = 0;
+      this.start = null;
+      this.end = null;
     },
   }));
 });
