@@ -8,3 +8,7 @@ You can use as many (or as few) tools, libraries, and frameworks as you'd like. 
 **Users should be able to:**
 - See the list of podcast episodes
 - Check one episode, shift click to select all the episodes in between
+
+
+## Notes
+- [AlpineJS querySelectorAll for x-for template](https://stackoverflow.com/questions/66957729/queryselectorall-in-a-x-for-loop)

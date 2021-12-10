@@ -18,7 +18,7 @@
         <img src="./images/podcast-cover.png" alt="Compressed.fm" />
       </div>
       <div x-data="episodes" class="content">
-        <h1>Listen to all the Compressed.fm Episodes</h1>
+        <h1 x-ignore>Listen to all the Compressed.fm Episodes</h1>
 
         <ul class="episodes">
           <template x-for="ep in $store.episodes">
@@ -28,6 +28,8 @@
                   :id="episodeId(ep.id)"
                   type="checkbox"
                   :name="episodeId(ep.id)"
+                  :data-ep-id="ep.id"
+                  @click="handleClick(event, $el)"
                 />
                 <span x-text="episodeTitle(ep.id, ep.name)"></span>
               </label>

@@ -11,6 +11,10 @@ body {
   justify-content: center;
 }
 
+.no-highlight {
+  user-select: none;
+}
+
 .wrapper {
   display: flex;
   align-items: center;
