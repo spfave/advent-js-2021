@@ -18,6 +18,13 @@ document.addEventListener('alpine:init', () => {
     episodeList: [],
 
     init() {
+      window.addEventListener('keyup', (event) => {
+        if (event.key === 'Shift') {
+          this.start = null;
+          this.end = null;
+        }
+      });
+
       this.$nextTick(() => {
         this.episodeList = [
           ...document.querySelectorAll('input[type="checkbox"]'),
@@ -36,14 +43,15 @@ document.addEventListener('alpine:init', () => {
     handleClick(event, el) {
       if (event.shiftKey) {
         this.handleShiftClick(el.dataset.epId);
-      } else {
-        this.handleSingleClick(el.dataset.epId);
       }
+      // else {
+      //   this.handleSingleClick(el.dataset.epId);
+      // }
     },
 
-    handleSingleClick(id) {
-      // console.log(`single: ${id}`);
-    },
+    // handleSingleClick(id) {
+    // console.log(`single: ${id}`);
+    // },
 
     handleShiftClick(id) {
       if (this.start === null) {
@@ -61,9 +69,6 @@ document.addEventListener('alpine:init', () => {
       this.episodeList.slice(this.start + 1, this.end + 1).forEach((ep) => {
         ep.checked = checkValue;
       });
-
-      this.start = null;
-      this.end = null;
     },
   }));
 });
