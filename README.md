@@ -17,4 +17,4 @@ I will be completing all projects using [Alpine.js](https://alpinejs.dev/).
 8. 
 9. 
 10. 
-11. [Accordian](./11-accordian)
+11. [Accordion](./11-accordion)
