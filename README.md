@@ -18,3 +18,5 @@ I will be completing all projects using [Alpine.js](https://alpinejs.dev/).
 9. 
 10. 
 11. [Accordion](./11-accordion)
+12. 
+13. [Modal](./13-modal)
