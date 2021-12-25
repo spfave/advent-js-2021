@@ -18,7 +18,7 @@ body {
   stroke-width: 10px;
 }
 
-.star-1 .star-1 svg,
+/* .star-1 .star-1 svg,
 .star-2 .star-1 svg,
 .star-2 .star-2 svg,
 .star-3 .star-1 svg,
@@ -32,7 +32,8 @@ body {
 .star-5 .star-2 svg,
 .star-5 .star-3 svg,
 .star-5 .star-4 svg,
-.star-5 .star-5 svg {
+.star-5 .star-5 svg */
+.star-fill svg {
   stroke-width: 0;
   fill: #ffd200;
 }
