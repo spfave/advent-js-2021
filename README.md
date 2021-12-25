@@ -20,3 +20,6 @@ I will be completing all projects using [Alpine.js](https://alpinejs.dev/).
 11. [Accordion](./11-accordion)
 12. 
 13. [Modal](./13-modal)
+14. 
+15. 
+16. [Star Rating](./16-star-rating)
