@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>13 - Custom Modal || Advent of JavaScript</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
 
   <body>
-    <div class="wrapper">
+    <div class="wrapper" x-data="{show: false}">
       <svg
         viewBox="0 0 1440 1024"
         fill="none"
@@ -17,7 +21,7 @@
         xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <image href="images/bg.jpg" width="1440" height="1024" />
-        <a href="#" id="something">
+        <a href="#" id="something" @click="show = true">
           <circle
             class="dot"
             cx="136.5"
@@ -37,9 +41,9 @@
         </a>
       </svg>
 
-      <div class="overlay">
-        <div class="modal">
-          <button class="close">
+      <div class="overlay" x-show="show" x-transition>
+        <div class="modal" @click.outside="show = false">
+          <button class="close" @click="show = false">
             <img src="images/close.svg" alt="Close" />
           </button>
 
