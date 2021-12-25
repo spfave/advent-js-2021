@@ -37,3 +37,8 @@ body {
   stroke-width: 0;
   fill: #ffd200;
 }
+
+.star-hover svg {
+  stroke-width: 0;
+  fill: #f0850b;
+}

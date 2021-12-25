@@ -12,12 +12,28 @@ document.addEventListener('alpine:init', () => {
       const lastStar = el.dataset.starId;
 
       this.starList.slice(0, lastStar).forEach((star) => {
-        star.classList.remove('star');
+        star.classList.remove('star', 'star-hover');
         star.classList.add('star-fill');
       });
       this.starList.slice(lastStar).forEach((star) => {
         star.classList.remove('star-fill');
         star.classList.add('star');
+      });
+    },
+
+    hoverOnRating(el) {
+      const lastStar = el.dataset.starId;
+
+      this.starList.slice(0, lastStar).forEach((star) => {
+        star.classList.add('star-hover');
+      });
+    },
+
+    hoverOffRating(el) {
+      const lastStar = el.dataset.starId;
+
+      this.starList.slice(0, lastStar).forEach((star) => {
+        star.classList.remove('star-hover');
       });
     },
   }));

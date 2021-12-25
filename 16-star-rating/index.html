@@ -17,7 +17,14 @@
     <!-- Use star-1, star-2, star-3, star-4, or star-5 -->
     <div class="star-rating" x-data="starRating">
       <template x-for="val in 5">
-        <a href="#" class="star" :data-star-id="val" @click="setRating($el)">
+        <a
+          href="#"
+          class="star"
+          :data-star-id="val"
+          @click="setRating($el)"
+          @mouseenter="hoverOnRating($el)"
+          @mouseleave="hoverOffRating($el)"
+        >
           <svg
             width="152"
             height="151"
