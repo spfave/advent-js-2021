@@ -1,9 +1,7 @@
 # **Day 11 Accordion**
 
 ## Brief
-You can use as many (or as few) tools, libraries, and frameworks as you'd like. If you're trying to learn something new, this might be a great way to push yourself.
-
-You can use as many (or as few) tools, libraries, and frameworks as you'd like. If you're trying to learn something new, this might be a great way to push yourself.
+In this project, we're going to create expanding and collapsing sections. This functionality can be found in accordions or toggle displays.
 
 ## Users should be able to:
 - Click on a collapsed question to expand it and view the answer.
