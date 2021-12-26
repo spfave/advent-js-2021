@@ -13,7 +13,7 @@ I will be completing all projects using [Alpine.js](https://alpinejs.dev/).
 4. 
 5. [Multi-Checkbox](./05-multi-checkbox)
 6. [Range Slider](./06-range-slider)
-7. 
+7. [Tip Calc](./07-tip-calc)
 8. 
 9. 
 10. 
