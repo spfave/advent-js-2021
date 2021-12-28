@@ -14,7 +14,7 @@ I will be completing all projects using [Alpine.js](https://alpinejs.dev/).
 5. [Multi-Checkbox](./05-multi-checkbox)
 6. [Range Slider](./06-range-slider)
 7. [Tip Calc](./07-tip-calc)
-8. 
+8. [Weather App](./08-weather-app)
 9. 
 10. 
 11. [Accordion](./11-accordion)
