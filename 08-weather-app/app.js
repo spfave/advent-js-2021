@@ -56,9 +56,33 @@ function getLocation() {
   }
 }
 
-async function testGetLocation() {
+async function testGetLocationWeather() {
   const position = await getLocation();
   console.log(position);
-}
 
-testGetLocation();
+  const weather = await getWeather(position);
+  console.log(weather);
+}
+testGetLocationWeather();
+
+// Weather Services
+async function getWeather(position) {
+  const openWeatherKey = '0bb338e53966913f3a5d9c70366f0e35'; // Fill in: https://openweathermap.org/
+  const openWeatherUrl = new URL(
+    'https://api.openweathermap.org/data/2.5/onecall'
+  );
+  const openWeatherParams = new URLSearchParams({
+    lat: position.coords.latitude,
+    lon: position.coords.longitude,
+    exclude: ['current', 'minutely', 'hourly', 'alerts'],
+    units: 'imperial',
+    appid: openWeatherKey,
+  }).toString();
+  openWeatherUrl.search = openWeatherParams;
+
+  const openWeatherRes = await fetch(openWeatherUrl);
+
+  if (!openWeatherRes.ok) throw openWeatherRes.json();
+
+  return await openWeatherRes.json();
+}
