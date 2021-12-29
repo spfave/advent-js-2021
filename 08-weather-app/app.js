@@ -1,4 +1,4 @@
-// Markup data
+// Markup Data
 const iconNameToSizeMap = {
   cloudy: { width: 264, height: 166 },
   sunny: { width: 208, height: 213 },
@@ -8,7 +8,7 @@ const iconNameToSizeMap = {
   rainy: { width: 160, height: 222 },
 };
 
-// Date services
+// Date Services
 const daysOfWeekMap = {
   0: 'SUN',
   1: 'MON',
@@ -26,3 +26,39 @@ function addDay(date, days) {
   tempDate.setDate(tempDate.getDate() + days);
   return tempDate;
 }
+
+// Location Services
+// let coords;
+// function locationSuccess(position) {
+//   coords = position.coords;
+// }
+function locationError(error) {
+  console.warn(`ERROR(${error.code}): ${error.message}`);
+  alert('Allow location permission to retrieve local weather.');
+}
+const locationOptions = {
+  timeout: 5000,
+  maximumAge: 1000,
+};
+function getLocation() {
+  if (navigator.geolocation) {
+    return new Promise((res) => {
+      navigator.geolocation.getCurrentPosition(
+        res,
+        locationError,
+        locationOptions
+      );
+    });
+
+    // navigator.geolocation.getCurrentPosition(
+    //   locationSuccess, locationError, locationOptions
+    // );
+  }
+}
+
+async function testGetLocation() {
+  const position = await getLocation();
+  console.log(position);
+}
+
+testGetLocation();
