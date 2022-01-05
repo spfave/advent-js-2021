@@ -118,14 +118,16 @@ document.addEventListener('alpine:init', () => {
         const dayData = weatherDaily[day];
         const dayDate = new Date(dayData.dt * 1000);
         const condition = weatherCondition(dayData.weather[0].id);
+        const icon = iconNameToSizeMap[condition];
 
         const tempData = {
           day: daysOfWeekMap[dayDate.getDay()],
           date: dayDate.getDate(),
           condition,
-          conditionIcon: iconNameToSizeMap[condition],
-          tempHigh: dayData.temp.day,
-          tempLow: dayData.temp.night,
+          icon,
+          iconBox: `0 0 ${icon.width} ${icon.height}`,
+          tempDay: Math.round(dayData.temp.day),
+          tempNight: Math.round(dayData.temp.night),
           precipitation: dayData.pop * 100,
         };
         // console.log(`tempData: ${JSON.stringify(tempData)}`);
@@ -136,7 +138,7 @@ document.addEventListener('alpine:init', () => {
   }));
 });
 
-/**
+/** Notes:
  * Get location permission
  * Get location (async)
  * Get date
