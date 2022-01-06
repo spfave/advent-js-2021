@@ -12,27 +12,24 @@
     ></script>
   </head>
 
-  <body
-    x-data="{
-      imageSrc: $store.images.content[0].image,
-      imageTxt: $store.images.content[0].caption,
-
-      imagePath(imageName) {
-        return `./images/${imageName}`
-      }
-    }"
-  >
+  <body x-data="photoCarousel">
     <div class="feature">
-      <img src="images/dave-hoefler-okUIdo6NxGo-unsplash.jpg" alt="Featured" />
-      <div class="caption">Photo by Dave Hoefler Unsplash</div>
+      <img :src="imagePath(imageId)" alt="Featured" />
+      <div class="caption" x-text="imageTxt(imageId)"></div>
     </div>
 
     <div class="thumbnails">
       <ul>
-        <template x-for="image in $store.images.content">
+        <template x-for="(image, index) in $store.images.content">
+          <!-- class="selected" -->
           <li class="">
             <a href="#">
-              <img :src="imagePath(image.image)" :alt="image.caption" />
+              <img
+                :src="imagePath(index)"
+                :alt="image.caption"
+                :data-id="index"
+                @click="setImage($el)"
+              />
             </a>
           </li>
         </template>
