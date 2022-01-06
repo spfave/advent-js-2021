@@ -5,8 +5,7 @@ document.addEventListener('alpine:init', () => {
     numImages: images.length,
 
     setImage(el) {
-      console.log(`el: ${JSON.stringify(el)}`);
-      this.imageId = el.dataset.id;
+      this.imageId = +el.dataset.id;
     },
 
     imageName(imageId) {
