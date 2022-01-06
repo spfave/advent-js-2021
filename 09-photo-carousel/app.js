@@ -1,16 +1,15 @@
 document.addEventListener('alpine:init', () => {
-  Alpine.store('images', { content: images });
-
   Alpine.data('photoCarousel', () => ({
+    images: images,
     imageId: 0,
 
     setImage(el) {},
 
     imageName(imageId) {
-      return this.$store.images.content[imageId].image;
+      return this.images[imageId].image;
     },
     imageTxt(imageId) {
-      return this.$store.images.content[imageId].caption;
+      return this.images[imageId].caption;
     },
 
     imagePath(imageId) {
