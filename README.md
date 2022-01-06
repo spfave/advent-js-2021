@@ -15,7 +15,7 @@ I will be completing all projects using [Alpine.js](https://alpinejs.dev/).
 6. [Range Slider](./06-range-slider)
 7. [Tip Calc](./07-tip-calc)
 8. [Weather App](./08-weather-app)
-9. 
+9. [Photo Carousel](./09-photo-carousel)
 10. 
 11. [Accordion](./11-accordion)
 12. 
