@@ -4,7 +4,9 @@ document.addEventListener('alpine:init', () => {
     imageId: 0,
     numImages: images.length,
 
-    setImage(el) {},
+    setImage(el) {
+      this.imageId = el.dataset.id;
+    },
 
     imageName(imageId) {
       return this.images[imageId].image;
