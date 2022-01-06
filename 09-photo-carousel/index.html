@@ -21,8 +21,7 @@
     <div class="thumbnails">
       <ul>
         <template x-for="(image, index) in images">
-          <!-- class="selected" -->
-          <li class="">
+          <li :class="imageId === index && 'selected'">
             <a href="#">
               <img
                 :src="imagePath(index)"
