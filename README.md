@@ -9,7 +9,7 @@ I will be completing all projects using [Alpine.js](https://alpinejs.dev/).
 ## **Projects**
 1. [Pomodoro Timer](./01-pomodoro-timer)
 2. [Ecommerce Component](./02-ecommerce-component)
-3. 
+3. [Sound Piano](./03-sound-piano)
 4. 
 5. [Multi-Checkbox](./05-multi-checkbox)
 6. [Range Slider](./06-range-slider)
