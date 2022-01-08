@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>04 - Eyes on the Screen || Advent of JavaScript</title>
     <link rel="stylesheet" href="styles.css" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
 
   <body>
-    <div class="keyboard">
+    <div class="keyboard" x-data="keyboard">
       <h1>Eyes on the Screen</h1>
       <div class="row">
         <button class="key" data-key="`">`</button>
@@ -32,7 +36,7 @@
         <button class="key" data-key="Q">Q</button>
         <button class="key" data-key="W">W</button>
         <button class="key" data-key="E">E</button>
-        <button class="key jiggle" data-key="R">R</button>
+        <button class="key" data-key="R">R</button>
         <button class="key" data-key="T">T</button>
         <button class="key" data-key="Y">Y</button>
         <button class="key" data-key="U">U</button>
@@ -73,6 +77,7 @@
         <button class="key utility" data-key="SHIFT">SHIFT</button>
       </div>
     </div>
-    <script src="app.js"></script>
+
+    <script src="./app.js" type=""></script>
   </body>
 </html>
