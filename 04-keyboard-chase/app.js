@@ -1,8 +1,12 @@
-/**
- * Query all key elements
- * Based on array length choose random key (number)
- * For that number in the array of keys set the class
+/** Plan:
+ * 1. Query all key elements
+ * 2. Based on array length choose random key
+ * 3. For random key set jiggle class
+ * 4. On keypress (event: keydown) check if pressed key matches current random key
+ *    True: Toggle off current key and toggle on new random key, repeat
+ *    False: do nothing
  */
+
 const keys = document.querySelectorAll('.key');
 const numKeys = keys.length;
 
@@ -11,21 +15,27 @@ document.addEventListener('alpine:init', () => {
     key: null,
 
     init() {
-      document.addEventListener('keydown', this.checkKey);
+      document.addEventListener('keydown', (e) => {
+        this.checkKey(e);
+      });
       this.randomKey();
-      console.log(this.key.classList);
     },
 
     randomKey() {
       const random = Math.floor(Math.random() * numKeys);
       this.key = keys[random];
-      this.key.classList.toggle('jiggle');
+      this.toggleJiggle();
     },
 
     checkKey(event) {
-      console.log(event.key);
-      console.log(event.code);
-      // if (condition) {      }
+      if (this.key.dataset.key === event.code) {
+        this.toggleJiggle();
+        this.randomKey();
+      }
+    },
+
+    toggleJiggle() {
+      this.key.classList.toggle('jiggle');
     },
   }));
 });
