@@ -14,9 +14,9 @@
 
   <body>
     <div class="wrapper menu">
-      <div class="panel" x-data>
+      <div class="panel">
         <h1>To Go Menu</h1>
-        <ul class="menu">
+        <ul class="menu" x-data>
           <template x-for="item in $store.menu.items">
             <li>
               <div class="plate">
@@ -28,7 +28,10 @@
               </div>
               <div class="content">
                 <p class="menu-item" x-text="item.name"></p>
-                <p class="price" x-text="item.price"></p>
+                <p
+                  class="price"
+                  x-text="$store.menu.displayDollar(item.price)"
+                ></p>
                 <button class="in-cart">
                   <img src="./images/check.svg" alt="check" />
                   In Cart
