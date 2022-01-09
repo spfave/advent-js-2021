@@ -130,13 +130,13 @@
         </ul>
       </div>
 
-      <div class="panel cart">
+      <div class="panel cart" x-data="cart">
         <h1>Your Cart</h1>
-        <p class="empty" x-data="cart" x-show="cartEmpty">
+        <p class="empty" x-show="cartEmpty">
           Your cart is empty.
         </p>
 
-        <ul class="cart-summary" x-data="cart" x-show="!cartEmpty">
+        <ul class="cart-summary" x-show="!cartEmpty">
           <template x-for="(item, index) in $store.menu.cart">
             <li>
               <div class="plate">
@@ -162,7 +162,7 @@
                 <button class="increase">
                   <img src="images/chevron.svg" />
                 </button>
-              <div class="subtotal" x-text=""></div>
+              <div class="subtotal" x-text="itemTotal(item)"></div>
             </li>
           </template>
 
@@ -222,15 +222,15 @@
         <div class="totals">
           <div class="line-item">
             <div class="label">Subtotal:</div>
-            <div class="amount price subtotal">$10.80</div>
+            <div class="amount price subtotal" x-text="$store.menu.displayDollar(cartPrice.subTotal)"></div>
           </div>
           <div class="line-item">
             <div class="label">Tax:</div>
-            <div class="amount price tax">$1.05</div>
+            <div class="amount price tax" x-text="$store.menu.displayDollar(cartPrice.tax)"></div>
           </div>
           <div class="line-item total">
             <div class="label">Total:</div>
-            <div class="amount price total">$11.85</div>
+            <div class="amount price total" x-text="$store.menu.displayDollar(cartPrice.total)"></div>
           </div>
         </div>
       </div>

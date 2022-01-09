@@ -37,11 +37,39 @@ document.addEventListener('alpine:init', () => {
   });
 
   // Data
-  Alpine.data('menu', () => ({}));
+  Alpine.data('menu', () => ({
+    addToCart() {},
+  }));
 
   Alpine.data('cart', () => ({
+    cartPrice: { subTotal: 0, tax: 0, total: 0 },
     get cartEmpty() {
       return this.$store.menu.cart.length === 0;
+    },
+
+    init() {
+      this.cartTotal();
+    },
+
+    increaseItem() {},
+    decreaseItem() {},
+
+    itemTotal(item) {
+      const itemTotal = item.price * item.count;
+      return dollarFormatter.format(itemTotal);
+    },
+
+    cartTotal() {
+      const restaurantTax = 0.05; // 5.0% avg VA
+
+      const subTotal = this.$store.menu.cart.reduce(
+        (total, item) => total + item.price * item.count,
+        0
+      );
+      const tax = subTotal * restaurantTax;
+      const total = subTotal + tax;
+
+      this.cartPrice = { subTotal, tax, total };
     },
   }));
 });
