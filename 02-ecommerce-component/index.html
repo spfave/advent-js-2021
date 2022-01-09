@@ -6,14 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>02 - E-Commerce Component || Advent of JavaScript</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
 
   <body>
     <div class="wrapper menu">
-      <div class="panel">
+      <div class="panel" x-data>
         <h1>To Go Menu</h1>
         <ul class="menu">
-          <li>
+          <template x-for="item in $store.menu.items">
+            <li>
+              <div class="plate">
+                <img
+                  class="plate"
+                  :src="`images/${item.image}`"
+                  :alt="item.alt"
+                />
+              </div>
+              <div class="content">
+                <p class="menu-item" x-text="item.name"></p>
+                <p class="price" x-text="item.price"></p>
+                <button class="in-cart">
+                  <img src="./images/check.svg" alt="check" />
+                  In Cart
+                </button>
+              </div>
+            </li>
+          </template>
+
+          <!-- <li>
             <div class="plate">
               <img
                 src="images/plate__french-fries.png"
@@ -99,7 +123,7 @@
               <p class="price">$6.34</p>
               <button class="add">Add to Cart</button>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
 
@@ -177,6 +201,8 @@
         </div>
       </div>
     </div>
+
+    <script src="data-menu.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
