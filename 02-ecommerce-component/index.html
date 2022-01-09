@@ -155,11 +155,11 @@
                 ></p>
               </div>
               <div class="quantity__wrapper">
-                <button class="decrease">
+                <button class="decrease" @click="decreaseItem(index)">
                   <img src="images/chevron.svg" />
                 </button>
                 <div class="quantity" x-text="item.count"></div>
-                <button class="increase">
+                <button class="increase" @click="increaseItem(index)">
                   <img src="images/chevron.svg" />
                 </button>
               <div class="subtotal" x-text="itemTotal(item)"></div>

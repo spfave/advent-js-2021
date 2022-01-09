@@ -48,11 +48,23 @@ document.addEventListener('alpine:init', () => {
     },
 
     init() {
-      this.cartTotal();
+      this.$watch('$store.menu.cart', () => {
+        this.cartTotal();
+      });
     },
 
-    increaseItem() {},
-    decreaseItem() {},
+    increaseItem(itemId) {
+      this.$store.menu.cart[itemId].count++;
+    },
+    decreaseItem(itemId) {
+      // If 1 item in cart, remove from cart
+      if (this.$store.menu.cart[itemId].count === 1) {
+        this.$store.menu.cart.splice(itemId, 1);
+        return;
+      }
+
+      this.$store.menu.cart[itemId].count--;
+    },
 
     itemTotal(item) {
       const itemTotal = item.price * item.count;
