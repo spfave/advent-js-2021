@@ -1,4 +1,4 @@
-// Cash formatter to
+// Cash formatter
 const dollarFormatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
@@ -10,22 +10,7 @@ document.addEventListener('alpine:init', () => {
   // Store
   Alpine.store('menu', {
     items: [],
-    cart: [
-      {
-        name: 'French Fries with Ketchup',
-        price: 2.23,
-        image: 'plate__french-fries.png',
-        alt: 'French Fries',
-        count: 2,
-      },
-      {
-        name: 'Salmon and Vegetables',
-        price: 5.12,
-        image: 'plate__salmon-vegetables.png',
-        alt: 'Salmon and Vegetables',
-        count: 1,
-      },
-    ],
+    cart: [],
 
     init() {
       this.items = menuItems;
@@ -38,7 +23,15 @@ document.addEventListener('alpine:init', () => {
 
   // Data
   Alpine.data('menu', () => ({
-    addToCart() {},
+    addToCart(itemId) {
+      const item = this.$store.menu.items[itemId];
+      this.$store.menu.cart.push({ ...item, count: 1 });
+    },
+
+    itemInCart(itemId) {
+      const itemName = this.$store.menu.items[itemId].name;
+      return this.$store.menu.cart.some((item) => item.name === itemName);
+    },
   }));
 
   Alpine.data('cart', () => ({

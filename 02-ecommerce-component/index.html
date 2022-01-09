@@ -16,8 +16,8 @@
     <div class="wrapper menu">
       <div class="panel">
         <h1>To Go Menu</h1>
-        <ul class="menu" x-data>
-          <template x-for="item in $store.menu.items">
+        <ul class="menu" x-data="menu">
+          <template x-for="(item, index) in $store.menu.items">
             <li>
               <div class="plate">
                 <img
@@ -32,9 +32,9 @@
                   class="price"
                   x-text="$store.menu.displayDollar(item.price)"
                 ></p>
-                <button class="in-cart">
-                  <img src="./images/check.svg" alt="check" />
-                  In Cart
+                <button :class="itemInCart(index) ? 'in-cart' : 'add'" @click="addToCart(index)" :disabled="itemInCart(index)"> 
+                  <img src="./images/check.svg" alt="check" x-show="itemInCart(index)"/>
+                  <span x-text="itemInCart(index) ? 'In Cart' : 'Add to Cart'"></span>
                 </button>
               </div>
             </li>
