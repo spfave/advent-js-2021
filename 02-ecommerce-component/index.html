@@ -39,8 +39,70 @@
               </div>
             </li>
           </template>
+        </ul>
+      </div>
 
-          <!-- <li>
+      <div class="panel cart" x-data="cart">
+        <h1>Your Cart</h1>
+        <p class="empty" x-show="cartEmpty">
+          Your cart is empty.
+        </p>
+
+        <ul class="cart-summary" x-show="!cartEmpty">
+          <template x-for="(item, index) in $store.menu.cart">
+            <li>
+              <div class="plate">
+                <img
+                  class="plate"
+                  :src="`images/${item.image}`"
+                  :alt="item.alt"
+                />
+                <div class="quantity" x-text="item.count"></div>
+              </div>
+              <div class="content">
+                <p class="menu-item" x-text="item.name"></p>
+                <p
+                  class="price"
+                  x-text="$store.menu.displayDollar(item.price)"
+                ></p>
+              </div>
+              <div class="quantity__wrapper">
+                <button class="decrease" @click="decreaseItem(index)">
+                  <img src="images/chevron.svg" />
+                </button>
+                <div class="quantity" x-text="item.count"></div>
+                <button class="increase" @click="increaseItem(index)">
+                  <img src="images/chevron.svg" />
+                </button>
+              <div class="subtotal" x-text="itemTotal(item)"></div>
+            </li>
+          </template>
+        </ul>
+
+        <div class="totals">
+          <div class="line-item">
+            <div class="label">Subtotal:</div>
+            <div class="amount price subtotal" x-text="$store.menu.displayDollar(cartPrice.subTotal)"></div>
+          </div>
+          <div class="line-item">
+            <div class="label">Tax:</div>
+            <div class="amount price tax" x-text="$store.menu.displayDollar(cartPrice.tax)"></div>
+          </div>
+          <div class="line-item total">
+            <div class="label">Total:</div>
+            <div class="amount price total" x-text="$store.menu.displayDollar(cartPrice.total)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="data-menu.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+
+<!-- Menu -->
+         <!-- <li>
             <div class="plate">
               <img
                 src="images/plate__french-fries.png"
@@ -127,45 +189,8 @@
               <button class="add">Add to Cart</button>
             </div>
           </li> -->
-        </ul>
-      </div>
 
-      <div class="panel cart" x-data="cart">
-        <h1>Your Cart</h1>
-        <p class="empty" x-show="cartEmpty">
-          Your cart is empty.
-        </p>
-
-        <ul class="cart-summary" x-show="!cartEmpty">
-          <template x-for="(item, index) in $store.menu.cart">
-            <li>
-              <div class="plate">
-                <img
-                  class="plate"
-                  :src="`images/${item.image}`"
-                  :alt="item.alt"
-                />
-                <div class="quantity" x-text="item.count"></div>
-              </div>
-              <div class="content">
-                <p class="menu-item" x-text="item.name"></p>
-                <p
-                  class="price"
-                  x-text="$store.menu.displayDollar(item.price)"
-                ></p>
-              </div>
-              <div class="quantity__wrapper">
-                <button class="decrease" @click="decreaseItem(index)">
-                  <img src="images/chevron.svg" />
-                </button>
-                <div class="quantity" x-text="item.count"></div>
-                <button class="increase" @click="increaseItem(index)">
-                  <img src="images/chevron.svg" />
-                </button>
-              <div class="subtotal" x-text="itemTotal(item)"></div>
-            </li>
-          </template>
-
+<!-- Cart -->
           <!-- item 1 -->
           <!-- <li>
             <div class="plate">
@@ -217,26 +242,3 @@
             </div>
             <div class="subtotal">$4.46</div>
           </li> -->
-        </ul>
-
-        <div class="totals">
-          <div class="line-item">
-            <div class="label">Subtotal:</div>
-            <div class="amount price subtotal" x-text="$store.menu.displayDollar(cartPrice.subTotal)"></div>
-          </div>
-          <div class="line-item">
-            <div class="label">Tax:</div>
-            <div class="amount price tax" x-text="$store.menu.displayDollar(cartPrice.tax)"></div>
-          </div>
-          <div class="line-item total">
-            <div class="label">Total:</div>
-            <div class="amount price total" x-text="$store.menu.displayDollar(cartPrice.total)"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="data-menu.js"></script>
-    <script src="app.js"></script>
-  </body>
-</html>
