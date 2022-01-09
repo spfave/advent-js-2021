@@ -132,11 +132,42 @@
 
       <div class="panel cart">
         <h1>Your Cart</h1>
-        <!-- <p class="empty">Your cart is empty.</p> -->
+        <p class="empty" x-data="cart" x-show="cartEmpty">
+          Your cart is empty.
+        </p>
 
-        <ul class="cart-summary">
+        <ul class="cart-summary" x-data="cart" x-show="!cartEmpty">
+          <template x-for="(item, index) in $store.menu.cart">
+            <li>
+              <div class="plate">
+                <img
+                  class="plate"
+                  :src="`images/${item.image}`"
+                  :alt="item.alt"
+                />
+                <div class="quantity" x-text="item.count"></div>
+              </div>
+              <div class="content">
+                <p class="menu-item" x-text="item.name"></p>
+                <p
+                  class="price"
+                  x-text="$store.menu.displayDollar(item.price)"
+                ></p>
+              </div>
+              <div class="quantity__wrapper">
+                <button class="decrease">
+                  <img src="images/chevron.svg" />
+                </button>
+                <div class="quantity" x-text="item.count"></div>
+                <button class="increase">
+                  <img src="images/chevron.svg" />
+                </button>
+              <div class="subtotal" x-text=""></div>
+            </li>
+          </template>
+
           <!-- item 1 -->
-          <li>
+          <!-- <li>
             <div class="plate">
               <img
                 src="images/plate__fish-sticks-fries.png"
@@ -159,10 +190,10 @@
               </button>
             </div>
             <div class="subtotal">$6.34</div>
-          </li>
+          </li> -->
 
           <!-- item 2 -->
-          <li>
+          <!-- <li>
             <div class="plate">
               <img
                 src="images/plate__french-fries.png"
@@ -185,7 +216,7 @@
               </button>
             </div>
             <div class="subtotal">$4.46</div>
-          </li>
+          </li> -->
         </ul>
 
         <div class="totals">
