@@ -16,7 +16,7 @@ Functionality is implemented using [Alpine.js](https://alpinejs.dev/).
 7. [Tip Calc](./07-tip-calc)
 8. [Weather App](./08-weather-app)
 9. [Photo Carousel](./09-photo-carousel)
-10. 
+10. [Passcode Verified](./10-passcode-verifier)
 11. [Accordion](./11-accordion)
 12. 
 13. [Modal](./13-modal)
