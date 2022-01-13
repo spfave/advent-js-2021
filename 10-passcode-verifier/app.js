@@ -4,9 +4,19 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('passcodeVerify', () => ({
     passcode: Array(4).fill(null),
 
-    typeCode() {},
+    typeCode(codeId) {
+      console.log(`type`);
+      if (codeId === this.passcode.length) {
+        this.checkPasscode();
+        return;
+      }
 
-    pasteCode() {},
+      inputs[codeId].focus();
+    },
+
+    pasteCode() {
+      console.log(`paste`);
+    },
 
     checkPasscode() {
       const passcode = this.passcode.join('');

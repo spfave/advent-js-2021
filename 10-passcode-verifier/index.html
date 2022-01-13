@@ -25,6 +25,8 @@
             placeholder="1"
             name="verification_1"
             autofocus
+            @input="typeCode(1)"
+            @paste="pasteCode"
           />
           <input
             type="text"
@@ -32,6 +34,7 @@
             x-model="passcode[1]"
             placeholder="2"
             name="verification_2"
+            @input="typeCode(2)"
           />
           <input
             type="text"
@@ -39,6 +42,7 @@
             x-model="passcode[2]"
             placeholder="3"
             name="verification_3"
+            @input="typeCode(3)"
           />
           <input
             type="text"
@@ -46,6 +50,7 @@
             x-model="passcode[3]"
             placeholder="4"
             name="verification_4"
+            @input="typeCode(4)"
           />
         </div>
         <button>Verify</button>
