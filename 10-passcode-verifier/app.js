@@ -28,5 +28,3 @@ document.addEventListener('alpine:init', () => {
     },
   }));
 });
-
-// on keydown shift focus
