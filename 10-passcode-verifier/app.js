@@ -5,7 +5,6 @@ document.addEventListener('alpine:init', () => {
     passcode: Array(4).fill(null),
 
     typeCode(codeId) {
-      console.log(`type`);
       if (codeId === this.passcode.length) {
         this.checkPasscode();
         return;
@@ -14,8 +13,13 @@ document.addEventListener('alpine:init', () => {
       inputs[codeId].focus();
     },
 
-    pasteCode() {
-      console.log(`paste`);
+    pasteCode(event) {
+      const pastText = (event.clipboardData || window.clipboardData).getData(
+        'text'
+      );
+      this.passcode = [pastText[0], pastText[1], pastText[2], pastText[3]];
+      inputs[this.passcode.length - 1].focus();
+      this.checkPasscode();
     },
 
     checkPasscode() {
