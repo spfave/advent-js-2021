@@ -18,7 +18,7 @@ Functionality is implemented using [Alpine.js](https://alpinejs.dev/).
 9. [Photo Carousel](./09-photo-carousel)
 10. [Passcode Verified](./10-passcode-verifier)
 11. [Accordion](./11-accordion)
-12. 
+12. [Rock Paper Scissors](./12-rock-paper-scissors)
 13. [Modal](./13-modal)
 14. 
 15. 
