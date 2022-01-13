@@ -6,18 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>11 - 4 Digit Code || Advent of JavaScript</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
 
   <body>
     <div class="wrapper">
       <h1>Authorization Code</h1>
       <p>Please enter the code that we sent to (***) *** - 2819.</p>
-      <form action="">
+      <form action="" x-data="passcodeVerify" @submit.prevent="checkPasscode">
         <div class="fields">
-          <input type="text" maxlength="1" value="1" name="verification_1" />
-          <input type="text" maxlength="1" value="" name="verification_2" />
-          <input type="text" maxlength="1" value="" name="verification_3" />
-          <input type="text" maxlength="1" value="" name="verification_4" />
+          <input
+            type="text"
+            maxlength="1"
+            x-model="passcode[0]"
+            placeholder="1"
+            name="verification_1"
+            autofocus
+          />
+          <input
+            type="text"
+            maxlength="1"
+            x-model="passcode[1]"
+            placeholder="2"
+            name="verification_2"
+          />
+          <input
+            type="text"
+            maxlength="1"
+            x-model="passcode[2]"
+            placeholder="3"
+            name="verification_3"
+          />
+          <input
+            type="text"
+            maxlength="1"
+            x-model="passcode[3]"
+            placeholder="4"
+            name="verification_4"
+          />
         </div>
         <button>Verify</button>
       </form>
