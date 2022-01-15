@@ -6,26 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>12 - Rock, Paper, Scissors || Advent of JavaScript</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
 
   <body>
     <div class="wrapper">
       <h1>pick one</h1>
-      <ul>
+      <ul x-data="rpsGame">
         <li class="pick-one">
-          <button>
+          <button @click="setChoice('rock')">
             <img src="./images/rock.png" alt="Rock" />
             rock
           </button>
         </li>
         <li class="pick-one">
-          <button>
+          <button @click="setChoice('rock')">
             <img src="./images/paper.png" alt="Paper" />
             paper
           </button>
         </li>
         <li class="pick-one">
-          <button>
+          <button @click="setChoice('scissors')">
             <img src="./images/scissors.png" alt="Scissors" />
             scissors
           </button>
