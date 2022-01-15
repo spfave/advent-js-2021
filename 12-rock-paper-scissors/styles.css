@@ -67,7 +67,9 @@ body.winner.computer-wins {
 }
 
 body.computer-wins h1.you-win,
-body.you-win h1.computer-wins {
+body.you-win h1.computer-wins,
+body.winner.you-tie h1.you-win,
+body.winner.you-tie h1.computer-wins {
   visibility: hidden;
 }
 
