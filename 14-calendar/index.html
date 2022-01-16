@@ -14,15 +14,15 @@
 
   <body>
     <div class="wrapper" x-data="calendar">
-      <div class="previous">
+      <button class="previous" @click="changeMonth(-1)">
         <img src="images/previous.svg" alt="Previous" />
-      </div>
+      </button>
 
       <div class="month" x-text="monthHeader"></div>
 
-      <div class="next">
+      <button class="next" @click="changeMonth(+1)">
         <img src="images/next.svg" alt="Next" />
-      </div>
+      </button>
 
       <div class="day-of-week">S</div>
       <div class="day-of-week">M</div>
