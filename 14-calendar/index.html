@@ -32,7 +32,11 @@
       <div class="day-of-week">F</div>
       <div class="day-of-week">S</div>
 
-      <div></div>
+      <template x-for="day in monthDates">
+        <div :class="" x-text="day"></div>
+      </template>
+
+      <!-- <div></div>
       <div></div>
       <div></div>
       <div>1</div>
@@ -66,7 +70,7 @@
       <div>29</div>
       <div>30</div>
       <div>31</div>
-      <div></div>
+      <div></div> -->
     </div>
 
     <script src="app.js"></script>
