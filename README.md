@@ -20,6 +20,6 @@ Functionality is implemented using [Alpine.js](https://alpinejs.dev/).
 11. [Accordion](./11-accordion)
 12. [Rock Paper Scissors](./12-rock-paper-scissors)
 13. [Modal](./13-modal)
-14. 
+14. [Calendar](./14-calendar)
 15. 
 16. [Star Rating](./16-star-rating)
