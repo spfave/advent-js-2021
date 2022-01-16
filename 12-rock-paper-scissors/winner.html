@@ -6,19 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>12 - Rock, Paper, Scissors || Advent of JavaScipt</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
 
-  <body class="winner computer-wins">
+  <body class="winner" :class="result" x-data="rpsResult" x-cloak>
     <div class="wrapper">
       <div class="your-pick">
         <h1 class="you-win">you win</h1>
-        <img src="./images/rock.png" alt="Rock" />
+        <img :src="`./images/${user}.png`" :alt="user" />
       </div>
       <div class="computer-pick">
         <h1 class="computer-wins">computer wins</h1>
-        <img src="./images/scissors.png" alt="Scissors" />
+        <img :src="`./images/${computer}.png`" :alt="computer" />
       </div>
-      <button class="play-again">play again?</button>
+      <button class="play-again" @click="playAgain">play again?</button>
     </div>
 
     <script src="winner.js"></script>
