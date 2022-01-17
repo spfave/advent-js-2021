@@ -68,4 +68,8 @@ aside li a {
 h3 {
   margin: 0;
   padding: 0;
+  /* white-space: nowrap; */
+  height: 45px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

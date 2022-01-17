@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>15 - YouTube API || Advent of JavaScript</title>
     <link rel="stylesheet" href="styles.css" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
 
   <body>
-    <div class="wrapper">
+    <div class="wrapper" x-data="videoGallery">
       <header>
         <img src="images/logo.png" alt="YouTube" />
       </header>
@@ -19,101 +23,102 @@
           <iframe
             width="100%"
             height="500"
-            src="https://www.youtube.com/embed/YipaPr4Aex8"
+            :src="`https://www.youtube.com/embed/${mainVideo.id.videoId}`"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
         </div>
-        <h1>Build an App with SvelteKit and Tailwind CSS</h1>
-
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <h1 x-text="mainVideo.snippet.title"></h1>
+        <p x-text="mainVideo.snippet.description"></p>
       </div>
 
       <aside>
         <ul class="gallery">
-          <li>
-            <a class="video">
-              <img src="images/placeholder.png" alt="" />
-              <h3>Build a SvelteKit App</h3>
-            </a>
-          </li>
-
-          <li>
-            <a class="video">
-              <img src="images/placeholder.png" alt="" />
-              <h3>Build a SvelteKit App</h3>
-            </a>
-          </li>
-
-          <li>
-            <a class="video">
-              <img src="images/placeholder.png" alt="" />
-              <h3>Build a SvelteKit App</h3>
-            </a>
-          </li>
-
-          <li>
-            <a class="video">
-              <img src="images/placeholder.png" alt="" />
-              <h3>Build a SvelteKit App</h3>
-            </a>
-          </li>
-
-          <li>
-            <a class="video">
-              <img src="images/placeholder.png" alt="" />
-              <h3>Build a SvelteKit App</h3>
-            </a>
-          </li>
-
-          <li>
-            <a class="video">
-              <img src="images/placeholder.png" alt="" />
-              <h3>Build a SvelteKit App</h3>
-            </a>
-          </li>
-
-          <li>
-            <a class="video">
-              <img src="images/placeholder.png" alt="" />
-              <h3>Build a SvelteKit App</h3>
-            </a>
-          </li>
-
-          <li>
-            <a class="video">
-              <img src="images/placeholder.png" alt="" />
-              <h3>Build a SvelteKit App</h3>
-            </a>
-          </li>
-
-          <li>
-            <a class="video">
-              <img src="images/placeholder.png" alt="" />
-              <h3>Build a SvelteKit App</h3>
-            </a>
-          </li>
-
-          <li>
-            <a class="video">
-              <img src="images/placeholder.png" alt="" />
-              <h3>Build a SvelteKit App</h3>
-            </a>
-          </li>
+          <template x-for="video in relatedVideos">
+            <li>
+              <a class="video">
+                <img :src="video.snippet.thumbnails.default.url" alt="" />
+                <h3 x-text="video.snippet.title"></h3>
+              </a>
+            </li>
+          </template>
         </ul>
       </aside>
     </div>
 
+    <script src="data-videos.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
+
+<!-- <li>
+  <a class="video">
+    <img src="images/placeholder.png" alt="" />
+    <h3>Build a SvelteKit App</h3>
+  </a>
+</li>
+
+<li>j
+  <a class="video">
+    <img src="images/placeholder.png" alt="" />
+    <h3>Build a SvelteKit App</h3>
+  </a>
+</li>
+
+<li>
+  <a class="video">
+    <img src="images/placeholder.png" alt="" />
+    <h3>Build a SvelteKit App</h3>
+  </a>
+</li>
+
+<li>
+  <a class="video">
+    <img src="images/placeholder.png" alt="" />
+    <h3>Build a SvelteKit App</h3>
+  </a>
+</li>
+
+<li>
+  <a class="video">
+    <img src="images/placeholder.png" alt="" />
+    <h3>Build a SvelteKit App</h3>
+  </a>
+</li>
+
+<li>
+  <a class="video">
+    <img src="images/placeholder.png" alt="" />
+    <h3>Build a SvelteKit App</h3>
+  </a>
+</li>
+
+<li>
+  <a class="video">
+    <img src="images/placeholder.png" alt="" />
+    <h3>Build a SvelteKit App</h3>
+  </a>
+</li>
+
+<li>
+  <a class="video">
+    <img src="images/placeholder.png" alt="" />
+    <h3>Build a SvelteKit App</h3>
+  </a>
+</li>
+
+<li>
+  <a class="video">
+    <img src="images/placeholder.png" alt="" />
+    <h3>Build a SvelteKit App</h3>
+  </a>
+</li>
+
+<li>
+  <a class="video">
+    <img src="images/placeholder.png" alt="" />
+    <h3>Build a SvelteKit App</h3>
+  </a> -->
+</li>
