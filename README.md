@@ -21,5 +21,5 @@ Functionality is implemented using [Alpine.js](https://alpinejs.dev/).
 12. [Rock Paper Scissors](./12-rock-paper-scissors)
 13. [Modal](./13-modal)
 14. [Calendar](./14-calendar)
-15. 
+15. [Video Gallery](./15-video-gallery)
 16. [Star Rating](./16-star-rating)
