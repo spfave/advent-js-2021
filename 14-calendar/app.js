@@ -7,6 +7,9 @@ document.addEventListener('alpine:init', () => {
     monthDates: null,
 
     init() {
+      this.$watch('monthDates', () => {
+        this.indicateToday();
+      });
       this.monthDays();
     },
 
@@ -34,6 +37,16 @@ document.addEventListener('alpine:init', () => {
       this.monthDates = leadingDates.concat(dates);
     },
 
+    indicateToday() {
+      document.querySelector('.today')?.classList.remove('today');
+
+      if (this.isToday()) {
+        document
+          .querySelector(`[data-day="${this.today.getDate()}"]`)
+          .classList.add('today');
+      }
+    },
+
     changeMonth(direction) {
       const newMonth = new Date(
         this.date.setMonth(this.date.getMonth() + direction, 1)
@@ -51,6 +64,10 @@ document.addEventListener('alpine:init', () => {
     /** Return number of days in month. Use 1 for January, 2 for February, etc. */
     daysInMonth(month, year) {
       return new Date(year, month, 0).getDate();
+    },
+
+    isToday() {
+      return this.date.valueOf() === this.today.valueOf();
     },
   }));
 });
