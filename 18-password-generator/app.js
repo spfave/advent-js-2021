@@ -1,3 +1,18 @@
+const charLists = {
+  s: '`~!@#$%^&*()-_=+[]{}\\|;:\'",.<>/?'.split(''), // symbols
+  n: '012346789'.split(''), // numbers
+  nES: '2346789'.split(''), // numbers exclude similar characters
+  l: 'abcdefghijklmnopqrstuvwxyz'.split(''), // lowercase letters
+  lES: 'abcdefghjkmnopqrstuvwxyz'.split(''), // lowercase letters exclude similar characters
+  u: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''), // uppercase letters
+  uES: 'ABCDEFGHIJKMNPQRSTUVWXYZ'.split(''), // uppercase letters exclude similar characters
+};
+
+const randomSelect = (arr) => {
+  const select = Math.floor(Math.random() * arr.length);
+  return arr[select];
+};
+
 document.addEventListener('alpine:init', () => {
   Alpine.data('pwGenerator', () => ({
     password: '',
@@ -8,7 +23,35 @@ document.addEventListener('alpine:init', () => {
     useUpperChar: true,
     useSimChar: false,
 
-    generatePassword() {},
+    init() {
+      this.generatePassword();
+    },
+
+    generatePassword() {
+      let charChoice = [];
+
+      if (this.useSymbols) charChoice.push(charLists.s);
+      if (this.useNumbers) {
+        if (this.useSimChar) charChoice.push(charLists.n);
+        else charChoice.push(charLists.nES);
+      }
+      if (this.useLowerChar) {
+        if (this.useSimChar) charChoice.push(charLists.l);
+        else charChoice.push(charLists.lES);
+      }
+      if (this.useUpperChar) {
+        if (this.useSimChar) charChoice.push(charLists.u);
+        else charChoice.push(charLists.uES);
+      }
+      charChoice = charChoice.flat();
+
+      const passwordChar = [];
+      for (let char = 0; char < this.numChar; char++) {
+        passwordChar.push(randomSelect(charChoice));
+      }
+
+      this.password = passwordChar.join('');
+    },
 
     copyPassword() {},
   }));
