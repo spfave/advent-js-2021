@@ -30,6 +30,7 @@ document.addEventListener('alpine:init', () => {
     generatePassword() {
       let charChoice = [];
 
+      // Create array of usable password characters
       if (this.useSymbols) charChoice.push(charLists.s);
       if (this.useNumbers) {
         if (this.useSimChar) charChoice.push(charLists.n);
@@ -45,6 +46,7 @@ document.addEventListener('alpine:init', () => {
       }
       charChoice = charChoice.flat();
 
+      // Randomly selected password characters
       const passwordChar = [];
       for (let char = 0; char < this.numChar; char++) {
         passwordChar.push(randomSelect(charChoice));
@@ -53,6 +55,13 @@ document.addEventListener('alpine:init', () => {
       this.password = passwordChar.join('');
     },
 
-    copyPassword() {},
+    copyPassword() {
+      const copyBtn = document.querySelector('button.copy');
+
+      navigator.clipboard.writeText(this.password);
+      copyBtn.classList.add('copied');
+
+      setTimeout(() => copyBtn.classList.remove('copied'), 5000);
+    },
   }));
 });
