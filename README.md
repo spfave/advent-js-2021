@@ -25,3 +25,4 @@ Functionality is implemented using [Alpine.js](https://alpinejs.dev/).
 16. [Star Rating](./16-star-rating)
 17. [Table of Contents](./17-table-of-contents)
 18. [Password Generator](./18-password-generator)
+19. [Form Validator](./19-form-validator)
