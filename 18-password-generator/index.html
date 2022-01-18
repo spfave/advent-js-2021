@@ -6,19 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>18 - Password Generator || Advent of JavaScript</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
 
   <body>
-    <div class="wrapper">
+    <div class="wrapper" x-data="pwGenerator" x-cloak>
       <div class="field">
         <input
           type="text"
           name="password"
           id="password"
-          value=""
+          x-model="password"
           min="6"
           max="32"
           steps="1"
+          readonly
         />
 
         <!-- 👇🏻 Add a class of "copied" when the user clicks this button 👇🏻 -->
@@ -46,11 +51,11 @@
           type="range"
           name="length"
           id="length"
-          value="12"
+          x-model="numChar"
           min="6"
           max="32"
         />
-        <span id="lengthText">12</span> characters
+        <span id="lengthText" x-text="numChar"></span> &nbsp; characters
       </div>
 
       <div class="field">
@@ -58,33 +63,52 @@
           type="checkbox"
           name="symbols"
           id="symbols"
-          value="true"
-          checked="true"
+          x-model="useSymbols"
         />
         <label for="symbols"><strong>Include Symbols</strong> (@#$%)</label>
       </div>
 
       <div class="field">
-        <input type="checkbox" name="numbers" id="numbers" checked="true" />
+        <input
+          type="checkbox"
+          name="numbers"
+          id="numbers"
+          x-model="useNumbers"
+        />
         <label for="numbers"><strong>Include Numbers</strong> (1234)</label>
       </div>
 
       <div class="field">
-        <input type="checkbox" name="lowercase" id="lowercase" checked="true" />
+        <input
+          type="checkbox"
+          name="lowercase"
+          id="lowercase"
+          x-model="useLowerChar"
+        />
         <label for="lowercase"
           ><strong>Include Lowercase Characters</strong> (abcd)</label
         >
       </div>
 
       <div class="field">
-        <input type="checkbox" name="uppercase" id="uppercase" checked="true" />
+        <input
+          type="checkbox"
+          name="uppercase"
+          id="uppercase"
+          x-model="useUpperChar"
+        />
         <label for="uppercase"
           ><strong>Include Uppercase Characters</strong> (ABCD)</label
         >
       </div>
 
       <div class="field">
-        <input type="checkbox" name="similar" id="similar" checked="true" />
+        <input
+          type="checkbox"
+          name="similar"
+          id="similar"
+          x-model="useSimChar"
+        />
         <label for="similar"
           ><strong>Include Similar Characters</strong> (i, l, 1, L, o, 0,
           O)</label
