@@ -24,3 +24,4 @@ Functionality is implemented using [Alpine.js](https://alpinejs.dev/).
 15. [Video Gallery](./15-video-gallery)
 16. [Star Rating](./16-star-rating)
 17. [Table of Contents](./17-table-of-contents)
+18. [Password Generator](./18-password-generator)
