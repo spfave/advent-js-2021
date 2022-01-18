@@ -6,13 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>19 - Form Validation || Advent of JavaScript</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
 
   <body>
-    <form action="">
+    <form action="" x-data="validator">
       <h1>Signup</h1>
       <div class="field">
-        <input type="text" name="name" id="name" placeholder=" " />
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder=" "
+          x-model="name"
+        />
         <label for="name">Name</label>
         <div class="error">
           <img src="./images/error.svg" alt="Error" />
@@ -21,7 +31,13 @@
         <div class="success"></div>
       </div>
       <div class="field">
-        <input type="email" name="email" id="email" placeholder=" " />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder=" "
+          x-model="email"
+        />
         <label for="email">Email</label>
         <div class="error"></div>
         <div class="success">
@@ -29,7 +45,13 @@
         </div>
       </div>
       <div class="field">
-        <input type="password" name="password" id="password" placeholder=" " />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder=" "
+          x-model="password"
+        />
         <label for="password">Password</label>
         <button class="show-hide"></button>
         <div class="error"></div>
@@ -41,6 +63,7 @@
           name="confirm-password"
           id="confirm-password"
           placeholder=" "
+          x-model="passwordC"
         />
         <label for="confirm-password">Confirm Password</label>
         <button class="show-hide"></button>
