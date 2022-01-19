@@ -53,27 +53,46 @@
         </div>
       </div>
 
-      <div class="field">
-        <input type="password" name="password" id="password" placeholder=" " />
-        <!-- x-model="password" -->
-        <label for="password">Password</label>
-        <button class="show-hide"></button>
-        <div class="error"></div>
-        <div class="success"></div>
-      </div>
+      <div x-data="passwordValidator">
+        <div class="field">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder=" "
+            x-model="password"
+            @blur="validatePassword"
+          />
+          <label for="password">Password</label>
+          <button class="show-hide"></button>
+          <div class="error" x-show="invalid" x-cloak="">
+            <img src="./images/error.svg" alt="Error" />
+            Passwords must match
+          </div>
+          <div class="success" x-show="valid" x-cloak>
+            <img src="./images/success.svg" alt="Success" />
+          </div>
+        </div>
 
-      <div class="field show">
-        <input
-          type="text"
-          name="confirm-password"
-          id="confirm-password"
-          placeholder=" "
-        />
-        <!-- x-model="passwordC" -->
-        <label for="confirm-password">Confirm Password</label>
-        <button class="show-hide"></button>
-        <div class="error"></div>
-        <div class="success"></div>
+        <div class="field show">
+          <input
+            type="text"
+            name="confirm-password"
+            id="confirm-password"
+            placeholder=" "
+            x-model="passwordC"
+            @blur="validatePassword"
+          />
+          <label for="confirm-password">Confirm Password</label>
+          <button class="show-hide"></button>
+          <div class="error" x-show="invalid" x-cloak="">
+            <img src="./images/error.svg" alt="Error" />
+            Passwords must match
+          </div>
+          <div class="success" x-show="valid" x-cloak>
+            <img src="./images/success.svg" alt="Success" />
+          </div>
+        </div>
       </div>
 
       <div class="field">

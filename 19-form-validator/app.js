@@ -34,4 +34,20 @@ document.addEventListener('alpine:init', () => {
     },
   }));
 
+  Alpine.data('passwordValidator', () => ({
+    password: '',
+    passwordC: '',
+    valid: false,
+    invalid: false,
+
+    validatePassword() {
+      if (this.password === this.passwordC) {
+        this.valid = true;
+        this.invalid = false;
+      } else {
+        this.valid = false;
+        this.invalid = true;
+      }
+    },
+  }));
 });
