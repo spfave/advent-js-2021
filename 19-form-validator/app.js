@@ -41,6 +41,7 @@ document.addEventListener('alpine:init', () => {
     invalid: false,
 
     validatePassword() {
+      // Could also include min length check, strength criteria, etc.
       if (this.password === this.passwordC) {
         this.valid = true;
         this.invalid = false;
@@ -48,6 +49,14 @@ document.addEventListener('alpine:init', () => {
         this.valid = false;
         this.invalid = true;
       }
+    },
+  }));
+
+  Alpine.data('passwordInput', () => ({
+    show: false,
+
+    toggleShow() {
+      this.show = !this.show;
     },
   }));
 });

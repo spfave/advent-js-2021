@@ -54,9 +54,9 @@
       </div>
 
       <div x-data="passwordValidator">
-        <div class="field">
+        <div class="field" :class="show && 'show'" x-data="passwordInput">
           <input
-            type="password"
+            :type="show ? 'text' : 'password'"
             name="password"
             id="password"
             placeholder=" "
@@ -64,7 +64,7 @@
             @blur="validatePassword"
           />
           <label for="password">Password</label>
-          <button class="show-hide"></button>
+          <button class="show-hide" @click.prevent="toggleShow"></button>
           <div class="error" x-show="invalid" x-cloak="">
             <img src="./images/error.svg" alt="Error" />
             Passwords must match
@@ -74,9 +74,9 @@
           </div>
         </div>
 
-        <div class="field show">
+        <div class="field" :class="show && 'show'" x-data="passwordInput">
           <input
-            type="text"
+            :type="show ? 'text' : 'password'"
             name="confirm-password"
             id="confirm-password"
             placeholder=" "
@@ -84,7 +84,7 @@
             @blur="validatePassword"
           />
           <label for="confirm-password">Confirm Password</label>
-          <button class="show-hide"></button>
+          <button class="show-hide" @click.prevent="toggleShow"></button>
           <div class="error" x-show="invalid" x-cloak="">
             <img src="./images/error.svg" alt="Error" />
             Passwords must match

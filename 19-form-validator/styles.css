@@ -83,7 +83,7 @@ input[type='password']:focus + label {
 
 .show-hide {
   border: none;
-  background: url('./images/show.svg') left top no-repeat;
+  background: url('./images/hide.svg') left top no-repeat;
   width: 32px;
   height: 32px;
   position: absolute;
@@ -93,7 +93,7 @@ input[type='password']:focus + label {
 }
 
 .show .show-hide {
-  background-image: url('./images/hide.svg');
+  background-image: url('./images/show.svg');
   background-size: 32px 32px;
   top: 28px;
 }
