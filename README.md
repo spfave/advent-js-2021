@@ -26,3 +26,4 @@ Functionality is implemented using [Alpine.js](https://alpinejs.dev/).
 17. [Table of Contents](./17-table-of-contents)
 18. [Password Generator](./18-password-generator)
 19. [Form Validator](./19-form-validator)
+20. [Tabbed Content](./20-tabbed-content)
