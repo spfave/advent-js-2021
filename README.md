@@ -2,7 +2,7 @@
 > https://www.adventofjs.com/
 
 ## Summary
-24 Days of JavaScript challenges. All HTML and CSS is provided as starter files, logic implementation is left up to the developer to plan and code.
+24 Days of JavaScript challenges. All HTML, CSS, and data is provided as starter code from [Advent of js](https://store.selfteach.me/advent-of-javascript). Logic implementation is left up to the developer to plan and code.
 
 Functionality is implemented using [Alpine.js](https://alpinejs.dev/).
 
@@ -27,3 +27,4 @@ Functionality is implemented using [Alpine.js](https://alpinejs.dev/).
 18. [Password Generator](./18-password-generator)
 19. [Form Validator](./19-form-validator)
 20. [Tabbed Content](./20-tabbed-content)
+21. [Simple Budget](./21-simple-budget)
