@@ -32,17 +32,15 @@
 
       <main>
         <div class="cover">
-          <img src="./images/cover__episode-39.png" alt="Episode 39" />
+          <img
+            :src="`./images/${selected.cover}`"
+            :alt="`Episode ${selected.id}`"
+          />
         </div>
         <div class="content">
-          <h1>Tech to Look Forward to in 2022</h1>
-          <p>
-            In this episode, Amy and James discuss the future of web
-            development: Astro, Veet, Supabase, SvelteKit, Redwood.js, Blitz.js,
-            GitHub Co-Pilot, Web Assembly, Blockchain, w3, no-code, and
-            low-code.
-          </p>
-          <a href="#" class="more">More</a>
+          <h1 x-text="selected.title"></h1>
+          <p x-text="selected.description"></p>
+          <a :href="selected.link" class="more">More</a>
         </div>
       </main>
     </div>
