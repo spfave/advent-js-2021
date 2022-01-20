@@ -8,5 +8,10 @@ document.addEventListener('alpine:init', () => {
       this.episodes = episodes;
       this.selected = this.episodes[0];
     },
+
+    selectEpisode(epsId) {
+      const selectEps = this.episodes.find(({ id }) => id === epsId);
+      this.selected = selectEps;
+    },
   }));
 });
