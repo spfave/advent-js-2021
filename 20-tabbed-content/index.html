@@ -20,7 +20,7 @@
         /></a>
         <ul id="tabs">
           <template x-for="eps in episodes">
-            <li>
+            <li :class="eps.id === selected.id && 'selected'">
               <a href="#">
                 <div class="episode" x-text="`Episode ${eps.id}`"></div>
                 <div class="title" x-text="eps.title"></div>
