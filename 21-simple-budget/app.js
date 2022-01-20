@@ -19,6 +19,8 @@ document.addEventListener('alpine:init', () => {
 
     addExpense() {},
 
+    removeExpense() {},
+
     calcSpent() {},
 
     calcBalance() {},
