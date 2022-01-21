@@ -28,3 +28,4 @@ Functionality is implemented using [Alpine.js](https://alpinejs.dev/).
 19. [Form Validator](./19-form-validator)
 20. [Tabbed Content](./20-tabbed-content)
 21. [Simple Budget](./21-simple-budget)
+22. [Credit Card](./22-credit-card)
