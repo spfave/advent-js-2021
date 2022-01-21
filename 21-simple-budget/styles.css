@@ -90,21 +90,41 @@ input[type='text']:focus + label {
   padding: 220px 125px 180px;
 }
 
-.expense-table {
+/* .expense-table {
   display: grid;
   grid-template-columns: 1fr 150px auto;
-}
+} */
 
-.expense-table div {
+.expense-item {
+  display: flex;
+  align-items: center;
   border-bottom: 2px solid #313131;
   padding: 16px 0;
 }
 
+.expense-item .expense-payee {
+  flex: 1;
+}
+
+.expense-item .expense-value {
+  text-align: right;
+  width: 30%;
+  padding-right: 16px;
+}
+
+/* .expense-table div {
+  border-bottom: 2px solid #313131;
+  padding: 16px 0;
+} */
+
 .delete {
   text-align: right;
+  width: 36px;
 }
 
 .delete-expense {
+  display: flex;
+  align-items: center;
   background: none;
   border: none;
   cursor: pointer;

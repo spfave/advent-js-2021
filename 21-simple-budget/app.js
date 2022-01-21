@@ -11,7 +11,10 @@ document.addEventListener('alpine:init', () => {
     income: 0,
     spent: 0,
     balance: 0,
-    expenses: [],
+    expenses: [
+      { payee: 'Starbucks', value: '5.54' },
+      { payee: 'Jamba Juice', value: '7.49' },
+    ],
 
     init() {},
 

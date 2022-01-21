@@ -42,29 +42,20 @@
       <div class="expenses-panel">
         <h2>Expenses</h2>
         <div class="expense-table">
-          <div>Starbucks</div>
-          <div>$5.54</div>
-          <div class="delete">
-            <button name="delete-expense" class="delete-expense">
-              <img src="./images/trash.svg" alt="Tash" />
-            </button>
-          </div>
-
-          <div>Starbucks</div>
-          <div>$5.54</div>
-          <div class="delete">
-            <button name="delete-expense" class="delete-expense">
-              <img src="./images/trash.svg" alt="Tash" />
-            </button>
-          </div>
-
-          <div>Starbucks</div>
-          <div>$5.54</div>
-          <div class="delete">
-            <button name="delete-expense" class="delete-expense">
-              <img src="./images/trash.svg" alt="Tash" />
-            </button>
-          </div>
+          <template x-for="expense in expenses">
+            <div class="expense-item">
+              <div class="expense-payee" x-text="expense.payee"></div>
+              <div
+                class="expense-value"
+                x-text="displayDollar(expense.value)"
+              ></div>
+              <div class="delete">
+                <button name="delete-expense" class="delete-expense">
+                  <img src="./images/trash.svg" alt="Trash icon" />
+                </button>
+              </div>
+            </div>
+          </template>
         </div>
       </div>
 
@@ -89,3 +80,27 @@
     <script src="app.js"></script>
   </body>
 </html>
+
+<!-- <div>Starbucks</div>
+<div>$5.54</div>
+<div class="delete">
+  <button name="delete-expense" class="delete-expense">
+    <img src="./images/trash.svg" alt="Tash" />
+  </button>
+</div>
+
+<div>Starbucks</div>
+<div>$5.54</div>
+<div class="delete">
+  <button name="delete-expense" class="delete-expense">
+    <img src="./images/trash.svg" alt="Tash" />
+  </button>
+</div>
+
+<div>Starbucks</div>
+<div>$5.54</div>
+<div class="delete">
+  <button name="delete-expense" class="delete-expense">
+    <img src="./images/trash.svg" alt="Tash" />
+  </button>
+</div> -->
