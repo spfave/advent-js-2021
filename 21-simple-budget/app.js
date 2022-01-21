@@ -32,7 +32,9 @@ document.addEventListener('alpine:init', () => {
       this.value = null;
     },
 
-    removeExpense() {},
+    removeExpense(id) {
+      this.expenses.splice(id, 1);
+    },
 
     calcSpent() {},
 
