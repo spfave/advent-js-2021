@@ -18,7 +18,10 @@ document.addEventListener('alpine:init', () => {
 
     init() {},
 
-    setBudget() {},
+    setBudget(el) {
+      this.income = +el.value;
+      el.value = '';
+    },
 
     addExpense() {},
 

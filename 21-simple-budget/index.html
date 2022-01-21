@@ -17,7 +17,7 @@
       <div class="add-panel">
         <h1>Simplified Budget</h1>
         <div class="field">
-          <input type="text" name="income" id="income" />
+          <input type="text" name="income" id="income" @blur="setBudget($el)" />
           <label for="income">Budget Amount</label>
         </div>
         <div class="add-expense">
