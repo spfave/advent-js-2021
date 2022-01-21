@@ -22,17 +22,28 @@
         </div>
         <div class="add-expense">
           <div class="field">
-            <input type="text" name="expense-name" id="expense-name" />
+            <input
+              type="text"
+              name="expense-name"
+              id="expense-name"
+              x-model="payee"
+            />
             <label for="expense-name">Expense</label>
           </div>
           <div class="field">
-            <input type="text" name="expense-amount" id="expense-amount" />
+            <input
+              type="text"
+              name="expense-amount"
+              id="expense-amount"
+              x-model="value"
+            />
             <label for="expense-amount">Amount</label>
           </div>
           <button
             name="add-expense-button"
             id="add-expense-button"
             class="add-expense-button"
+            @click="addExpense"
           >
             <img src="./images/plus.svg" alt="Plus" />
           </button>

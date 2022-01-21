@@ -11,6 +11,8 @@ document.addEventListener('alpine:init', () => {
     income: 0,
     spent: 0,
     balance: 0,
+    payee: '',
+    value: null,
     expenses: [
       { payee: 'Starbucks', value: '5.54' },
       { payee: 'Jamba Juice', value: '7.49' },
@@ -23,7 +25,12 @@ document.addEventListener('alpine:init', () => {
       el.value = '';
     },
 
-    addExpense() {},
+    addExpense() {
+      const expense = { payee: this.payee, value: this.value };
+      this.expenses.push(expense);
+      this.payee = '';
+      this.value = null;
+    },
 
     removeExpense() {},
 
