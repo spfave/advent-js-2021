@@ -87,7 +87,11 @@
 
         <div class="summary-item">
           <div class="summary-label">Balance</div>
-          <div class="summary-amount" x-text="displayDollar(balance)"></div>
+          <div
+            class="summary-amount"
+            :class="balance >= 0 ? 'positive' : 'negative'"
+            x-text="displayDollar(balance)"
+          ></div>
         </div>
       </div>
     </div>

@@ -21,8 +21,13 @@ document.addEventListener('alpine:init', () => {
     init() {
       this.$watch('expenses', () => {
         this.calcSpent();
+        this.calcBalance();
+      });
+      this.$watch('income', () => {
+        this.calcBalance();
       });
       this.calcSpent();
+      this.calcBalance();
     },
 
     setBudget(el) {
@@ -45,7 +50,9 @@ document.addEventListener('alpine:init', () => {
       this.spent = this.expenses.reduce((acc, { value }) => acc + value, 0);
     },
 
-    calcBalance() {},
+    calcBalance() {
+      this.balance = this.income - this.spent;
+    },
 
     displayDollar(value) {
       return dollarFormatter.format(value);
