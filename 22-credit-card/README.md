@@ -1,7 +1,7 @@
 # **Day 21 Credit Card**
 
 ## Brief
-In this project, we're going to create a Simplified Budget  
+In this project, we're going to create a Credit Card form.  
 ![Credit Card App](https://coachtestprep.s3.amazonaws.com/direct-uploads/user-117025/2d763ace-1b29-4a5c-8c1a-1e3119c7575b/CleanShot%202021-12-22%20at%2009.37.52.png)  
 image credit: [Advent of js](https://store.selfteach.me/advent-of-javascript)
 
