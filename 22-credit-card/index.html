@@ -17,8 +17,7 @@
       <!-- 👇🏻 ADD A CLASS OF FLIP 👇🏻 && 👇🏻 SWAP OUT THE DISCOVER CLASS FOR VISA OR MASTERCARD 👇🏻 -->
       <div
         class="credit-card__wrapper visa"
-        :class="card.type"
-        x-bind:class="flip && 'flip'"
+        :class="[card.type, flip && 'flip']"
       >
         <div class="credit-card__inner">
           <div class="credit-card--front">

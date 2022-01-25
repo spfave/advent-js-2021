@@ -1,7 +1,9 @@
+document.querySelector('input[name="card-number"]').focus();
+
 document.addEventListener('alpine:init', () => {
   Alpine.data('creditCard', () => ({
     card: {
-      type: 'visa',
+      type: '',
       number: '',
       holder: '',
       expiration: { month: '', year: '' },
@@ -21,6 +23,7 @@ document.addEventListener('alpine:init', () => {
         this.card.type = 'discover';
       } else {
         alert('Enter a valid credit card number');
+        // document.querySelector('input[name="card-number"]').focus();
       }
     },
 
@@ -31,6 +34,7 @@ document.addEventListener('alpine:init', () => {
     // },
 
     enterCVV() {
+      console.log(`flip`);
       this.flip = !this.flip;
     },
   }));
