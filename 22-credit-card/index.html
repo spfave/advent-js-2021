@@ -15,7 +15,11 @@
   <body>
     <div class="wrapper" x-data="creditCard">
       <!-- 👇🏻 ADD A CLASS OF FLIP 👇🏻 && 👇🏻 SWAP OUT THE DISCOVER CLASS FOR VISA OR MASTERCARD 👇🏻 -->
-      <div class="credit-card__wrapper visa" :class="card.type">
+      <div
+        class="credit-card__wrapper visa"
+        :class="card.type"
+        x-bind:class="flip && 'flip'"
+      >
         <div class="credit-card__inner">
           <div class="credit-card--front">
             <div class="card-number">
@@ -103,7 +107,13 @@
 
             <div class="field">
               <label for="cvv">CVV</label>
-              <input type="text" name="cvv" x-model="card.cvv" />
+              <input
+                type="text"
+                name="cvv"
+                x-model="card.cvv"
+                @focus="enterCVV"
+                @blur="enterCVV"
+              />
             </div>
           </div>
 

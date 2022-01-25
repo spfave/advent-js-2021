@@ -7,6 +7,7 @@ document.addEventListener('alpine:init', () => {
       expiration: { month: '', year: '' },
       cvv: '',
     },
+    flip: false,
 
     displayCardType() {
       const ccn = this.card.number;
@@ -29,6 +30,8 @@ document.addEventListener('alpine:init', () => {
     //     ${ccn.slice(9, 13)} ${ccn.slice(13)}`;
     // },
 
-    enterCVV() {},
+    enterCVV() {
+      this.flip = !this.flip;
+    },
   }));
 });
