@@ -1,4 +1,4 @@
-# **Day 21 Credit Card**
+# **Day 22 Credit Card**
 
 ## Brief
 In this project, we're going to create a Credit Card form.  
