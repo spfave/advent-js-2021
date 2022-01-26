@@ -16,7 +16,7 @@
     <!-- 👇🏻 ADD / REMOVE A CLASS OF COLLAPSED 👇🏻 -->
     <div class="toaster" x-data="toaster" :class="hide && 'collapsed'" x-cloak>
       <div class="close">
-        <button class="close-toaster" id="closeToaster">
+        <button class="close-toaster" id="closeToaster" @click="close">
           <img src="./images/close.svg" alt="Close" /> Close
         </button>
       </div>

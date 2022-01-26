@@ -4,6 +4,10 @@
   --primary: #faff00;
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
 body {
   padding: 0;
   margin: 0;
