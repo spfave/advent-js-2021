@@ -6,6 +6,12 @@ document.addEventListener('alpine:init', () => {
       setTimeout(() => {
         this.hide = false;
       }, 15000);
+
+      document.addEventListener('mouseleave', (event) => {
+        if (event.clientY < 60) {
+          this.hide = false;
+        }
+      });
     },
 
     close() {
