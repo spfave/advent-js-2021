@@ -7,5 +7,9 @@ document.addEventListener('alpine:init', () => {
         this.hide = false;
       }, 15000);
     },
+
+    close() {
+      this.hide = true;
+    },
   }));
 });
