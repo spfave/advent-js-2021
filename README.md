@@ -30,3 +30,4 @@ Functionality is implemented using [Alpine.js](https://alpinejs.dev/).
 21. [Simple Budget](./21-simple-budget)
 22. [Credit Card](./22-credit-card)
 23. [Toaster](./23-toaster)
+24. [Dynamic Paginated Table](./24-dynamic-paginated-table)
