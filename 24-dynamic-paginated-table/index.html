@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <div class="wrapper" x-data="dynTable">
+    <div class="wrapper" x-data>
       <table cellpadding="0" cellspacing="0" width="100%">
         <thead>
           <tr>
@@ -109,12 +109,16 @@
         <tbody>
           <template x-for="person in $store.data.candidates">
             <!-- class="edit" -->
-            <tr :data-id="person.id">
+            <tr
+              :class="editMode && 'edit'"
+              x-data="dynTableRow"
+              :data-id="person.id"
+            >
               <td x-text="person.id"></td>
               <td class="name">
                 <input
                   type="text"
-                  disabled="disabled"
+                  :disabled="!editMode && 'disabled'"
                   name="person-name-1"
                   x-model="person.name"
                 />
@@ -122,7 +126,7 @@
               <td>
                 <input
                   type="text"
-                  disabled="disabled"
+                  :disabled="!editMode && 'disabled'"
                   name="person-email-1"
                   x-model="person.email"
                 />
@@ -130,21 +134,27 @@
               <td>
                 <input
                   type="text"
-                  disabled="disabled"
+                  :disabled="!editMode && 'disabled'"
                   name="person-title-1"
                   x-model="person.title"
                 />
               </td>
               <td>
                 <button
+                  id="personEdit1"
+                  class="edit"
+                  name="person-edit-1"
+                  @click="toggleEditMode()"
+                >
+                  <img src="./images/edit.svg" alt="Edit" class="edit" />
+                </button>
+                <button
+                  id="personUpdate1"
                   class="update"
                   name="person-update-1"
-                  id="personUpdate1"
+                  @click="toggleEditMode()"
                 >
                   <img src="./images/update.svg" alt="Update" class="update" />
-                </button>
-                <button class="edit" name="person-edit-1" id="personEdit1">
-                  <img src="./images/edit.svg" alt="Edit" class="edit" />
                 </button>
               </td>
             </tr>

@@ -9,4 +9,12 @@ document.addEventListener('alpine:init', () => {
   });
 
   Alpine.data('dynTable', () => ({}));
+
+  Alpine.data('dynTableRow', () => ({
+    editMode: false,
+
+    toggleEditMode() {
+      this.editMode = !this.editMode;
+    },
+  }));
 });
