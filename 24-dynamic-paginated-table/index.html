@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>24 - Table || Advent of JavaScript</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
 
   <body>
-    <div class="wrapper">
+    <div class="wrapper" x-data="dynTable">
       <table cellpadding="0" cellspacing="0" width="100%">
         <thead>
           <tr>
@@ -103,331 +107,50 @@
         </thead>
 
         <tbody>
+          <template x-for="person in candidates">
+            <!-- class="edit" -->
+            <tr :data-id="person.id">
+              <td x-text="person.id"></td>
+              <td class="name">
+                <input
+                  type="text"
+                  disabled="disabled"
+                  name="person-name-1"
+                  x-model="person.name"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  disabled="disabled"
+                  name="person-email-1"
+                  x-model="person.email"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  disabled="disabled"
+                  name="person-title-1"
+                  x-model="person.title"
+                />
+              </td>
+              <td>
+                <button
+                  class="update"
+                  name="person-update-1"
+                  id="personUpdate1"
+                >
+                  <img src="./images/update.svg" alt="Update" class="update" />
+                </button>
+                <button class="edit" name="person-edit-1" id="personEdit1">
+                  <img src="./images/edit.svg" alt="Edit" class="edit" />
+                </button>
+              </td>
+            </tr>
+          </template>
+
           <!-- 👇🏻 ADD A CLASS OF EDIT, IF YOU TO DISPLAY THE FORM FIELDS 👇🏻 -->
-          <tr>
-            <td>1</td>
-            <td class="name">
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-name-1"
-                value="Cameron Williamson"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-email-1"
-                value="cameron.williams@example.com"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-title-1"
-                value="Software Developer"
-              />
-            </td>
-            <td>
-              <button class="update" name="person-update-1" id="personUpdate1">
-                <img src="./images/update.svg" alt="Update" class="update" />
-              </button>
-              <button class="edit" name="person-edit-1" id="personEdit1">
-                <img src="./images/edit.svg" alt="Edit" class="edit" />
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td class="name">
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-name-1"
-                value="Cameron Williamson"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-email-1"
-                value="cameron.williams@example.com"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-title-1"
-                value="Software Developer"
-              />
-            </td>
-            <td>
-              <button class="update" name="person-update-1" id="personUpdate1">
-                <img src="./images/update.svg" alt="Update" class="update" />
-              </button>
-              <button class="edit" name="person-edit-1" id="personEdit1">
-                <img src="./images/edit.svg" alt="Edit" class="edit" />
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td class="name">
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-name-1"
-                value="Cameron Williamson"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-email-1"
-                value="cameron.williams@example.com"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-title-1"
-                value="Software Developer"
-              />
-            </td>
-            <td>
-              <button class="update" name="person-update-1" id="personUpdate1">
-                <img src="./images/update.svg" alt="Update" class="update" />
-              </button>
-              <button class="edit" name="person-edit-1" id="personEdit1">
-                <img src="./images/edit.svg" alt="Edit" class="edit" />
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td class="name">
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-name-1"
-                value="Cameron Williamson"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-email-1"
-                value="cameron.williams@example.com"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-title-1"
-                value="Software Developer"
-              />
-            </td>
-            <td>
-              <button class="update" name="person-update-1" id="personUpdate1">
-                <img src="./images/update.svg" alt="Update" class="update" />
-              </button>
-              <button class="edit" name="person-edit-1" id="personEdit1">
-                <img src="./images/edit.svg" alt="Edit" class="edit" />
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td class="name">
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-name-1"
-                value="Cameron Williamson"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-email-1"
-                value="cameron.williams@example.com"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-title-1"
-                value="Software Developer"
-              />
-            </td>
-            <td>
-              <button class="update" name="person-update-1" id="personUpdate1">
-                <img src="./images/update.svg" alt="Update" class="update" />
-              </button>
-              <button class="edit" name="person-edit-1" id="personEdit1">
-                <img src="./images/edit.svg" alt="Edit" class="edit" />
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td class="name">
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-name-1"
-                value="Cameron Williamson"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-email-1"
-                value="cameron.williams@example.com"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-title-1"
-                value="Software Developer"
-              />
-            </td>
-            <td>
-              <button class="update" name="person-update-1" id="personUpdate1">
-                <img src="./images/update.svg" alt="Update" class="update" />
-              </button>
-              <button class="edit" name="person-edit-1" id="personEdit1">
-                <img src="./images/edit.svg" alt="Edit" class="edit" />
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td class="name">
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-name-1"
-                value="Cameron Williamson"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-email-1"
-                value="cameron.williams@example.com"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-title-1"
-                value="Software Developer"
-              />
-            </td>
-            <td>
-              <button class="update" name="person-update-1" id="personUpdate1">
-                <img src="./images/update.svg" alt="Update" class="update" />
-              </button>
-              <button class="edit" name="person-edit-1" id="personEdit1">
-                <img src="./images/edit.svg" alt="Edit" class="edit" />
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td class="name">
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-name-1"
-                value="Cameron Williamson"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-email-1"
-                value="cameron.williams@example.com"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-title-1"
-                value="Software Developer"
-              />
-            </td>
-            <td>
-              <button class="update" name="person-update-1" id="personUpdate1">
-                <img src="./images/update.svg" alt="Update" class="update" />
-              </button>
-              <button class="edit" name="person-edit-1" id="personEdit1">
-                <img src="./images/edit.svg" alt="Edit" class="edit" />
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td class="name">
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-name-1"
-                value="Cameron Williamson"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-email-1"
-                value="cameron.williams@example.com"
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                disabled="disabled"
-                name="person-title-1"
-                value="Software Developer"
-              />
-            </td>
-            <td>
-              <button class="update" name="person-update-1" id="personUpdate1">
-                <img src="./images/update.svg" alt="Update" class="update" />
-              </button>
-              <button class="edit" name="person-edit-1" id="personEdit1">
-                <img src="./images/edit.svg" alt="Edit" class="edit" />
-              </button>
-            </td>
-          </tr>
-
           <tr class="edit">
             <td>1</td>
             <td class="name">
@@ -493,6 +216,332 @@
         </tfoot>
       </table>
     </div>
+
+    <script src="data-candidates.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
+
+<!-- <tr>
+  <td>1</td>
+  <td class="name">
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-name-1"
+      value="Cameron Williamson"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-email-1"
+      value="cameron.williams@example.com"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-title-1"
+      value="Software Developer"
+    />
+  </td>
+  <td>
+    <button class="update" name="person-update-1" id="personUpdate1">
+      <img src="./images/update.svg" alt="Update" class="update" />
+    </button>
+    <button class="edit" name="person-edit-1" id="personEdit1">
+      <img src="./images/edit.svg" alt="Edit" class="edit" />
+    </button>
+  </td>
+</tr> -->
+
+<!-- <tr>
+  <td>1</td>
+  <td class="name">
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-name-1"
+      value="Cameron Williamson"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-email-1"
+      value="cameron.williams@example.com"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-title-1"
+      value="Software Developer"
+    />
+  </td>
+  <td>
+    <button class="update" name="person-update-1" id="personUpdate1">
+      <img src="./images/update.svg" alt="Update" class="update" />
+    </button>
+    <button class="edit" name="person-edit-1" id="personEdit1">
+      <img src="./images/edit.svg" alt="Edit" class="edit" />
+    </button>
+  </td>
+</tr>
+
+<tr>
+  <td>1</td>
+  <td class="name">
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-name-1"
+      value="Cameron Williamson"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-email-1"
+      value="cameron.williams@example.com"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-title-1"
+      value="Software Developer"
+    />
+  </td>
+  <td>
+    <button class="update" name="person-update-1" id="personUpdate1">
+      <img src="./images/update.svg" alt="Update" class="update" />
+    </button>
+    <button class="edit" name="person-edit-1" id="personEdit1">
+      <img src="./images/edit.svg" alt="Edit" class="edit" />
+    </button>
+  </td>
+</tr>
+
+<tr>
+  <td>1</td>
+  <td class="name">
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-name-1"
+      value="Cameron Williamson"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-email-1"
+      value="cameron.williams@example.com"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-title-1"
+      value="Software Developer"
+    />
+  </td>
+  <td>
+    <button class="update" name="person-update-1" id="personUpdate1">
+      <img src="./images/update.svg" alt="Update" class="update" />
+    </button>
+    <button class="edit" name="person-edit-1" id="personEdit1">
+      <img src="./images/edit.svg" alt="Edit" class="edit" />
+    </button>
+  </td>
+</tr>
+
+<tr>
+  <td>1</td>
+  <td class="name">
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-name-1"
+      value="Cameron Williamson"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-email-1"
+      value="cameron.williams@example.com"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-title-1"
+      value="Software Developer"
+    />
+  </td>
+  <td>
+    <button class="update" name="person-update-1" id="personUpdate1">
+      <img src="./images/update.svg" alt="Update" class="update" />
+    </button>
+    <button class="edit" name="person-edit-1" id="personEdit1">
+      <img src="./images/edit.svg" alt="Edit" class="edit" />
+    </button>
+  </td>
+</tr>
+
+<tr>
+  <td>1</td>
+  <td class="name">
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-name-1"
+      value="Cameron Williamson"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-email-1"
+      value="cameron.williams@example.com"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-title-1"
+      value="Software Developer"
+    />
+  </td>
+  <td>
+    <button class="update" name="person-update-1" id="personUpdate1">
+      <img src="./images/update.svg" alt="Update" class="update" />
+    </button>
+    <button class="edit" name="person-edit-1" id="personEdit1">
+      <img src="./images/edit.svg" alt="Edit" class="edit" />
+    </button>
+  </td>
+</tr>
+
+<tr>
+  <td>1</td>
+  <td class="name">
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-name-1"
+      value="Cameron Williamson"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-email-1"
+      value="cameron.williams@example.com"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-title-1"
+      value="Software Developer"
+    />
+  </td>
+  <td>
+    <button class="update" name="person-update-1" id="personUpdate1">
+      <img src="./images/update.svg" alt="Update" class="update" />
+    </button>
+    <button class="edit" name="person-edit-1" id="personEdit1">
+      <img src="./images/edit.svg" alt="Edit" class="edit" />
+    </button>
+  </td>
+</tr>
+
+<tr>
+  <td>1</td>
+  <td class="name">
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-name-1"
+      value="Cameron Williamson"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-email-1"
+      value="cameron.williams@example.com"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-title-1"
+      value="Software Developer"
+    />
+  </td>
+  <td>
+    <button class="update" name="person-update-1" id="personUpdate1">
+      <img src="./images/update.svg" alt="Update" class="update" />
+    </button>
+    <button class="edit" name="person-edit-1" id="personEdit1">
+      <img src="./images/edit.svg" alt="Edit" class="edit" />
+    </button>
+  </td>
+</tr>
+
+<tr>
+  <td>1</td>
+  <td class="name">
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-name-1"
+      value="Cameron Williamson"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-email-1"
+      value="cameron.williams@example.com"
+    />
+  </td>
+  <td>
+    <input
+      type="text"
+      disabled="disabled"
+      name="person-title-1"
+      value="Software Developer"
+    />
+  </td>
+  <td>
+    <button class="update" name="person-update-1" id="personUpdate1">
+      <img src="./images/update.svg" alt="Update" class="update" />
+    </button>
+    <button class="edit" name="person-edit-1" id="personEdit1">
+      <img src="./images/edit.svg" alt="Edit" class="edit" />
+    </button>
+  </td>
+</tr> -->
