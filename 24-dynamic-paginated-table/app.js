@@ -1,14 +1,16 @@
 document.addEventListener('alpine:init', () => {
   Alpine.store('data', {
     candidates: [],
-
-    init() {
-      // fetch api response
-      this.candidates = data;
-    },
   });
 
-  Alpine.data('dynTable', () => ({}));
+  Alpine.data('dynTable', () => ({
+    init() {
+      // fetch api response
+      this.$store.data.candidates = data;
+    },
+
+    sortColumn() {},
+  }));
 
   Alpine.data('dynTableRow', () => ({
     editMode: false,
