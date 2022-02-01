@@ -1,8 +1,11 @@
+// Alpine JS
 document.addEventListener('alpine:init', () => {
+  // Global data store
   Alpine.store('data', {
     candidates: [],
   });
 
+  // Dynamic table
   Alpine.data('dynTable', () => ({
     pageLimit: 5,
     page: 1,
@@ -21,9 +24,21 @@ document.addEventListener('alpine:init', () => {
       return Math.ceil(this.$store.data.candidates.length / this.pageLimit);
     },
 
-    sortColumn() {},
+    // ascending and descending
+    sortColumn(column, order) {
+      console.log(`sort`);
+
+      // this.pageCandidates.sort();
+    },
+
+    nextData() {},
+
+    prevData() {},
+
+    setPage() {},
   }));
 
+  // Dynamic table row
   Alpine.data('dynTableRow', () => ({
     editMode: false,
 
