@@ -107,7 +107,7 @@
         </thead>
 
         <tbody>
-          <template x-for="person in $store.data.candidates">
+          <template x-for="person in pageCandidates">
             <tr
               :class="editMode && 'edit'"
               x-data="dynTableRow"
@@ -162,7 +162,9 @@
 
         <tfoot>
           <tr>
-            <td colspan="2">30 Results</td>
+            <td colspan="2">
+              <span x-text="$store.data.candidates.length"></span> Results
+            </td>
             <td colspan="3">
               <div class="pagination edit">
                 <button class="previous" id="previous">
