@@ -107,7 +107,7 @@
         </thead>
 
         <tbody>
-          <template x-for="person in candidates">
+          <template x-for="person in $store.data.candidates">
             <!-- class="edit" -->
             <tr :data-id="person.id">
               <td x-text="person.id"></td>
