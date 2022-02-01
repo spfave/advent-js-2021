@@ -5,6 +5,7 @@ document.addEventListener('alpine:init', () => {
 
   Alpine.data('dynTable', () => ({
     pageLimit: 5,
+    page: 1,
     pageCandidates: [],
 
     init() {
@@ -14,6 +15,10 @@ document.addEventListener('alpine:init', () => {
         0,
         this.pageLimit
       );
+    },
+
+    get numPages() {
+      return Math.ceil(this.$store.data.candidates.length / this.pageLimit);
     },
 
     sortColumn() {},

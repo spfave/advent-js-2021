@@ -173,13 +173,13 @@
 
                 <input
                   type="text"
-                  name="currentPage"
-                  value="1"
                   id="currentPage"
+                  name="currentPage"
+                  x-model="page"
                 />
 
                 <span>&nbsp;of&nbsp;</span>
-                <span id="totalPages">3</span>
+                <span id="totalPages" x-text="numPages"></span>
 
                 <button class="next" id="next">
                   <img src="./images/chevron--right.svg" alt="Next" />
