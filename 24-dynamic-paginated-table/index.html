@@ -109,7 +109,7 @@
         </thead>
 
         <tbody>
-          <template x-for="person in pageCandidates">
+          <template x-for="person in pageCandidates" :key="person.id">
             <tr
               :class="editMode && 'edit'"
               x-data="dynTableRow"
