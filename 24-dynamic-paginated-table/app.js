@@ -1,3 +1,36 @@
+// Functions
+function sortAlphabetical(array, param, order = 'asc') {
+  let sortFunc;
+  switch (order) {
+    case 'dsc':
+      sortFunc = (a, b) => b[param].localeCompare(a[param], 'en-US');
+      break;
+
+    case 'asc':
+    default:
+      sortFunc = (a, b) => a[param].localeCompare(b[param], 'en-US');
+      break;
+  }
+
+  array.sort(sortFunc);
+}
+
+function sortNumeric(array, param, order = 'asc') {
+  let sortFunc;
+  switch (order) {
+    case 'dsc':
+      sortFunc = (a, b) => b[param] - a[param];
+      break;
+
+    case 'asc':
+    default:
+      sortFunc = (a, b) => a[param] - b[param];
+      break;
+  }
+
+  return array.sort(sortFunc);
+}
+
 // Alpine JS
 document.addEventListener('alpine:init', () => {
   // Global data store
@@ -24,11 +57,19 @@ document.addEventListener('alpine:init', () => {
       return Math.ceil(this.$store.data.candidates.length / this.pageLimit);
     },
 
-    // ascending and descending
-    sortColumn(column, order) {
-      console.log(`sort`);
+    sortColumnNum() {
+      console.log(`sortNum`);
+      console.log(`this.pageCandidates 1: `, this.pageCandidates);
+      this.pageCandidates = sortNumeric(this.pageCandidates, 'id', 'dsc');
+      console.log(`this.pageCandidates 2: `, this.pageCandidates);
+    },
 
-      // this.pageCandidates.sort();
+    // ascending and descending
+    sortColumnAlp(param) {
+      console.log(`sortNum`);
+      console.log(`this.pageCandidates 1: `, this.pageCandidates);
+      sortAlphabetical(this.pageCandidates, param, 'dsc');
+      console.log(`this.pageCandidates 2: `, this.pageCandidates);
     },
 
     nextData() {},
