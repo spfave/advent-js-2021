@@ -58,12 +58,25 @@ document.addEventListener('alpine:init', () => {
     },
 
     sortColumnNum(param) {
-      sortNumeric(this.pageCandidates, param, 'dsc');
+      this.indicateSort(param);
+      sortNumeric(this.pageCandidates, param, 'asc');
     },
 
     // ascending and descending
     sortColumnAlp(param) {
-      sortAlphabetical(this.pageCandidates, param, 'dsc');
+      this.indicateSort(param);
+      sortAlphabetical(this.pageCandidates, param, 'asc');
+    },
+
+    indicateSort(param) {
+      const colAsc = document.querySelector('.sort.ascending');
+      if (colAsc) colAsc.classList.remove('ascending');
+      const colDsc = document.querySelector('.sort.descending');
+      if (colDsc) colAsc.classList.remove('descending');
+
+      document
+        .querySelector(`[data-col="${param}"]`)
+        .classList.add('ascending');
     },
 
     nextData() {},

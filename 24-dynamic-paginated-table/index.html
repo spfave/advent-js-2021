@@ -20,7 +20,11 @@
             <th class="header__id">
               ID
               <!-- 👇🏻 ADD A CLASS OF ascending OR DESCENDING 👇🏻 -->
-              <button class="sort ascending" @click="sortColumnNum('id')">
+              <button
+                class="sort ascending"
+                @click="sortColumnNum('id')"
+                data-col="id"
+              >
                 <svg
                   width="17"
                   height="21"
@@ -41,7 +45,11 @@
             </th>
             <th>
               Name
-              <button class="sort" @click="sortColumnAlp('name')">
+              <button
+                class="sort"
+                @click="sortColumnAlp('name')"
+                data-col="name"
+              >
                 <svg
                   width="17"
                   height="21"
@@ -62,7 +70,11 @@
             </th>
             <th>
               Email Address
-              <button class="sort" @click="sortColumnAlp('email')">
+              <button
+                class="sort"
+                @click="sortColumnAlp('email')"
+                data-col="email"
+              >
                 <svg
                   width="17"
                   height="21"
@@ -83,7 +95,11 @@
             </th>
             <th>
               Job Title
-              <button class="sort" @click="sortColumnAlp('title')">
+              <button
+                class="sort"
+                @click="sortColumnAlp('title')"
+                data-col="title"
+              >
                 <svg
                   width="17"
                   height="21"
