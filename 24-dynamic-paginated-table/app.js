@@ -57,19 +57,13 @@ document.addEventListener('alpine:init', () => {
       return Math.ceil(this.$store.data.candidates.length / this.pageLimit);
     },
 
-    sortColumnNum() {
-      console.log(`sortNum`);
-      console.log(`this.pageCandidates 1: `, this.pageCandidates);
-      this.pageCandidates = sortNumeric(this.pageCandidates, 'id', 'dsc');
-      console.log(`this.pageCandidates 2: `, this.pageCandidates);
+    sortColumnNum(param) {
+      this.pageCandidates = sortNumeric(this.pageCandidates, param, 'dsc');
     },
 
     // ascending and descending
     sortColumnAlp(param) {
-      console.log(`sortNum`);
-      console.log(`this.pageCandidates 1: `, this.pageCandidates);
       sortAlphabetical(this.pageCandidates, param, 'dsc');
-      console.log(`this.pageCandidates 2: `, this.pageCandidates);
     },
 
     nextData() {},
