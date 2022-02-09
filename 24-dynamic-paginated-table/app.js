@@ -28,7 +28,7 @@ function sortNumeric(array, param, order = 'asc') {
       break;
   }
 
-  return array.sort(sortFunc);
+  array.sort(sortFunc);
 }
 
 // Alpine JS
@@ -58,7 +58,7 @@ document.addEventListener('alpine:init', () => {
     },
 
     sortColumnNum(param) {
-      this.pageCandidates = sortNumeric(this.pageCandidates, param, 'dsc');
+      sortNumeric(this.pageCandidates, param, 'dsc');
     },
 
     // ascending and descending
