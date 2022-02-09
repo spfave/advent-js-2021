@@ -20,14 +20,13 @@
             <th class="header__id">
               ID
               <!-- 👇🏻 ADD A CLASS OF ascending OR DESCENDING 👇🏻 -->
-              <button class="sort ascending">
+              <button class="sort ascending" @click="sortColumnNum()">
                 <svg
                   width="17"
                   height="21"
                   viewBox="0 0 17 21"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  @click="sortColumnNum()"
                 >
                   <path
                     class="ascending"
@@ -42,14 +41,13 @@
             </th>
             <th>
               Name
-              <button class="sort">
+              <button class="sort" @click="sortColumnAlp('name')">
                 <svg
                   width="17"
                   height="21"
                   viewBox="0 0 17 21"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  @click="sortColumnAlp('name')"
                 >
                   <path
                     class="ascending"
@@ -64,14 +62,13 @@
             </th>
             <th>
               Email Address
-              <button class="sort">
+              <button class="sort" @click="sortColumnAlp('email')">
                 <svg
                   width="17"
                   height="21"
                   viewBox="0 0 17 21"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  @click="sortColumnAlp('email')"
                 >
                   <path
                     class="ascending"
@@ -86,14 +83,13 @@
             </th>
             <th>
               Job Title
-              <button class="sort">
+              <button class="sort" @click="sortColumnAlp('title')">
                 <svg
                   width="17"
                   height="21"
                   viewBox="0 0 17 21"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  @click="sortColumnAlp('title')"
                 >
                   <path
                     class="ascending"
