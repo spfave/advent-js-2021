@@ -193,10 +193,15 @@
                 </button>
 
                 <input
-                  type="text"
                   id="currentPage"
+                  type="number"
+                  min="1"
+                  :max="numPages"
                   name="currentPage"
                   x-model.number="page"
+                  oninput="validity.valid||(value='');"
+                  @blur="handleSetPage"
+                  @keydown.enter="handleSetPage"
                 />
 
                 <span>&nbsp;of&nbsp;</span>

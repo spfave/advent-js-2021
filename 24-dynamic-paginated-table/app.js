@@ -88,7 +88,14 @@ document.addEventListener('alpine:init', () => {
       );
     },
 
-    setPage() {},
+    handleSetPage() {
+      if (!this.page) return (this.page = 1);
+      const offset = (this.page - 1) * this.pageLimit;
+      this.pageCandidates = this.$store.data.candidates.slice(
+        offset,
+        offset + this.pageLimit
+      );
+    },
   }));
 
   // Dynamic table row
