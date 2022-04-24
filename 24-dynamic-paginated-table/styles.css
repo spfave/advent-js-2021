@@ -131,6 +131,10 @@ tr.edit .edit {
   cursor: pointer;
 }
 
+.pagination button:disabled {
+  cursor: auto;
+}
+
 tbody tr:last-child td {
   border-bottom: 2px solid black;
 }
