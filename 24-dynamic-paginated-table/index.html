@@ -187,7 +187,7 @@
                   class="previous"
                   id="previous"
                   :disabled="page===1"
-                  @click="prevData"
+                  @click="handlePageChange('dsc')"
                 >
                   <img src="./images/chevron--left.svg" alt="Previous" />
                 </button>
@@ -206,7 +206,7 @@
                   class="next"
                   id="next"
                   :disabled="page===numPages"
-                  @click="nextData"
+                  @click="handlePageChange('asc')"
                 >
                   <img src="./images/chevron--right.svg" alt="Next" />
                 </button>

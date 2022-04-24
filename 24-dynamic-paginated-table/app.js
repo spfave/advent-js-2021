@@ -79,17 +79,8 @@ document.addEventListener('alpine:init', () => {
         .classList.add('ascending');
     },
 
-    nextData() {
-      this.page++;
-      const offset = (this.page - 1) * this.pageLimit;
-      this.pageCandidates = this.$store.data.candidates.slice(
-        offset,
-        offset + this.pageLimit
-      );
-    },
-
-    prevData() {
-      this.page--;
+    handlePageChange(direction) {
+      direction === 'asc' ? this.page++ : this.page--;
       const offset = (this.page - 1) * this.pageLimit;
       this.pageCandidates = this.$store.data.candidates.slice(
         offset,
