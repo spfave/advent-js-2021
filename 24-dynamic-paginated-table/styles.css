@@ -65,7 +65,8 @@ td {
 }
 
 input[type='text'],
-input[type='email'] {
+input[type='email'],
+input[type='number'] {
   background: none;
   padding: 0 16px;
   height: 55px;
@@ -74,6 +75,18 @@ input[type='email'] {
   font-size: 18px;
   width: 100%;
   box-sizing: border-box;
+}
+
+#currentPage {
+  background: #edf4f9;
+  width: 50px;
+  text-align: center;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .edit input[type='text'],
