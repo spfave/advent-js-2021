@@ -89,7 +89,7 @@ document.addEventListener('alpine:init', () => {
     },
 
     handleSetPage() {
-      if (!this.page) return (this.page = 1);
+      if (!this.page) this.page = 1;
       const offset = (this.page - 1) * this.pageLimit;
       this.pageCandidates = this.$store.data.candidates.slice(
         offset,
