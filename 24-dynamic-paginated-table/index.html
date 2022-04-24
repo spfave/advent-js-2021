@@ -183,7 +183,12 @@
             </td>
             <td colspan="3">
               <div class="pagination edit">
-                <button class="previous" id="previous">
+                <button
+                  class="previous"
+                  id="previous"
+                  :disabled="page===1"
+                  @click="prevData"
+                >
                   <img src="./images/chevron--left.svg" alt="Previous" />
                 </button>
 
@@ -191,13 +196,18 @@
                   type="text"
                   id="currentPage"
                   name="currentPage"
-                  x-model="page"
+                  x-model.number="page"
                 />
 
                 <span>&nbsp;of&nbsp;</span>
                 <span id="totalPages" x-text="numPages"></span>
 
-                <button class="next" id="next">
+                <button
+                  class="next"
+                  id="next"
+                  :disabled="page===numPages"
+                  @click="nextData"
+                >
                   <img src="./images/chevron--right.svg" alt="Next" />
                 </button>
               </div>

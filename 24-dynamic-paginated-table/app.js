@@ -79,9 +79,23 @@ document.addEventListener('alpine:init', () => {
         .classList.add('ascending');
     },
 
-    nextData() {},
+    nextData() {
+      this.page++;
+      const offset = (this.page - 1) * this.pageLimit;
+      this.pageCandidates = this.$store.data.candidates.slice(
+        offset,
+        offset + this.pageLimit
+      );
+    },
 
-    prevData() {},
+    prevData() {
+      this.page--;
+      const offset = (this.page - 1) * this.pageLimit;
+      this.pageCandidates = this.$store.data.candidates.slice(
+        offset,
+        offset + this.pageLimit
+      );
+    },
 
     setPage() {},
   }));
