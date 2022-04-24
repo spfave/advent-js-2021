@@ -1,12 +1,12 @@
 // Functions
-function sortAlphabetical(array, param, order = 'asc') {
+function sortAlphabetical(array, param, order = 'ascending') {
   let sortFunc;
   switch (order) {
-    case 'dsc':
+    case 'descending':
       sortFunc = (a, b) => b[param].localeCompare(a[param], 'en-US');
       break;
 
-    case 'asc':
+    case 'ascending':
     default:
       sortFunc = (a, b) => a[param].localeCompare(b[param], 'en-US');
       break;
@@ -15,14 +15,14 @@ function sortAlphabetical(array, param, order = 'asc') {
   array.sort(sortFunc);
 }
 
-function sortNumeric(array, param, order = 'asc') {
+function sortNumeric(array, param, order = 'ascending') {
   let sortFunc;
   switch (order) {
-    case 'dsc':
+    case 'descending':
       sortFunc = (a, b) => b[param] - a[param];
       break;
 
-    case 'asc':
+    case 'ascending':
     default:
       sortFunc = (a, b) => a[param] - b[param];
       break;
@@ -43,6 +43,8 @@ document.addEventListener('alpine:init', () => {
     pageLimit: 5,
     page: 1,
     pageCandidates: [],
+    sortColumn: 'id',
+    sortDirection: 'ascending',
 
     init() {
       // fetch api response
@@ -59,28 +61,30 @@ document.addEventListener('alpine:init', () => {
 
     sortColumnNum(param) {
       this.indicateSort(param);
-      sortNumeric(this.pageCandidates, param, 'asc');
+      sortNumeric(this.pageCandidates, param, this.sortDirection);
     },
 
     // ascending and descending
     sortColumnAlp(param) {
       this.indicateSort(param);
-      sortAlphabetical(this.pageCandidates, param, 'asc');
+      sortAlphabetical(this.pageCandidates, param, this.sortDirection);
     },
 
     indicateSort(param) {
-      const colAsc = document.querySelector('.sort.ascending');
-      if (colAsc) colAsc.classList.remove('ascending');
-      const colDsc = document.querySelector('.sort.descending');
-      if (colDsc) colAsc.classList.remove('descending');
+      // Sort new column
+      if (param !== this.sortColumn) {
+        this.sortColumn = param;
+        this.sortDirection = 'ascending';
+        return;
+      }
 
-      document
-        .querySelector(`[data-col="${param}"]`)
-        .classList.add('ascending');
+      // reverse current sorted row
+      this.sortDirection =
+        this.sortDirection === 'ascending' ? 'descending' : 'ascending';
     },
 
     handlePageChange(direction) {
-      direction === 'asc' ? this.page++ : this.page--;
+      direction === 'ascending' ? this.page++ : this.page--;
       const offset = (this.page - 1) * this.pageLimit;
       this.pageCandidates = this.$store.data.candidates.slice(
         offset,

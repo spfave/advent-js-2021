@@ -21,7 +21,8 @@
               ID
               <!-- 👇🏻 ADD A CLASS OF ascending OR DESCENDING 👇🏻 -->
               <button
-                class="sort ascending"
+                class="sort"
+                :class="sortColumn === 'id' && sortDirection"
                 @click="sortColumnNum('id')"
                 data-col="id"
               >
@@ -47,6 +48,7 @@
               Name
               <button
                 class="sort"
+                :class="sortColumn === 'name' && sortDirection"
                 @click="sortColumnAlp('name')"
                 data-col="name"
               >
@@ -72,6 +74,7 @@
               Email Address
               <button
                 class="sort"
+                :class="sortColumn === 'email' && sortDirection"
                 @click="sortColumnAlp('email')"
                 data-col="email"
               >
@@ -97,6 +100,7 @@
               Job Title
               <button
                 class="sort"
+                :class="sortColumn === 'title' && sortDirection"
                 @click="sortColumnAlp('title')"
                 data-col="title"
               >
@@ -187,7 +191,7 @@
                   class="previous"
                   id="previous"
                   :disabled="page===1"
-                  @click="handlePageChange('dsc')"
+                  @click="handlePageChange('descending')"
                 >
                   <img src="./images/chevron--left.svg" alt="Previous" />
                 </button>
@@ -211,7 +215,7 @@
                   class="next"
                   id="next"
                   :disabled="page===numPages"
-                  @click="handlePageChange('asc')"
+                  @click="handlePageChange('ascending')"
                 >
                   <img src="./images/chevron--right.svg" alt="Next" />
                 </button>
